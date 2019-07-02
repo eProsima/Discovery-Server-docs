@@ -22,6 +22,8 @@
 
 # -- General configuration ------------------------------------------------
 
+import platform
+
 # If your documentation needs a minimal Sphinx version, state it here.
 #
 # needs_sphinx = '1.0'
@@ -31,7 +33,10 @@
 # ones.
 extensions = ['sphinx.ext.autosectionlabel','sphinxcontrib.plantuml','sphinx.ext.graphviz']
 
-plantuml = 'java -jar ../utils/plantum.jar'
+if platform.system() == 'Windows':
+	plantuml = 'java -jar ..\utils\plantuml.jar'
+else:
+	plantuml = 'java -jar ../utils/plantuml.jar'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

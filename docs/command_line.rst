@@ -4,8 +4,7 @@ Executable use
 **Table of Contents**
 
 :ref:`Basic concepts`
-:ref:`Running a scenario`
-:ref:`Validating a scenario`
+:ref:`Use cases`
 
 Basic concepts
 **************
@@ -95,11 +94,56 @@ Each of the attributes in fast-RTPS has an echo in the XML profiles. XML profile
 + The participant profile **rtps** tag contains a new optional **prefix** tag where the server `GuidPrefix_t` must be specified. Any other discovery selection as simple or clients may disregard this member.
 
 + The participant profile **builtin** tag contains a **discovery_config** tag where all discovery related info is gathered. This new tag contains the following new elements:
-	- a **discoveryProtocol** tag, where the discovery type can be specified through the `DiscoveryProtocol_t` enumeration quoted above see `above <DiscoverySettings_>`_.
+	- a **discoveryProtocol** tag, where the discovery type can be specified through the `DiscoveryProtocol_t` enumeration quoted `above <DiscoverySettings_>`_.
 	- a **discoveryServersList** tag, where the server or servers linked with a participant can be specified.
 	- a **clientAnnouncementPeriod** tag, where the time span between PDP metatraffic exchange can be specified.
 	
 Below we provide an example xml participant profile using this new *tags*:	
 	
-..literalinclude:: 
+.. literalinclude:: ../snippets/test_1_PDP_UDP.xml
+    :language: XML
+    :start-after: <profiles>
+    :end-before: </profiles>
+	
+Use cases
+*********
+
+The discovery server binary (named after the pattern :code:`discovery-server-X.X.X(d)` where X.X.X is the version number and the optional *d* denotes a debug builds) is setup from one or several xml config files passed as command line arguments. There are two modes of execution:
+
++ *Processing* mode. In this mode a single config file answering to the `discovery-server.xsd <../../schemas/discovery-server.xsd>` _schema. This schema is basically an extension of the fast RTPS one that simplifies the creation of custom servers and provides tools for easily testing specific discovery scenarios.
+
+ When using the discovery server with testing purposes one may:
+
+ - inmediately validate when test execution is finished. This is the usual case when testing a single process scenario.
+	
+ - not validate the test results and generate and xml file with the test results. This results file follows a specific `ds-snapshot.xsd <../../schemas/ds-snapshot.xsd>`_ schema. This mode is activated by passing a filename in the input config xml. It's the usual case when testing a multiprocess or multimachine scenario. Each process or machine will generate a results xml file (with each one's discovery information record) and all of them would be validated later by running the discovery server binary in *validation* mode.
+ 
+ ::
+ 
+   > discovery-server-X.X.X(d).exe config_file.xml
+	
++ *Validation* mode. Only for testing purposes. In this mode several xml results files generated on *Processing* mode would be compared to each other in other to assess if all discovery information was properly propagated by the server or servers involved in the testing.
+
+ ::
+
+   > discovery-server-X.X.X(d).exe results_file_1.xml results_file_2.xml results_file_3.xml ...
+   
+Note that if the colcon deployment strategy described in section `Installation steps`_ was followed, before using the binary we must setup the appropriate enviromental variables using colcon generated scripts:
+
+Linux:
+
+.. code-block:: bash
+	
+	[BUILD]/install/discovery-server/bin$ . ../../local_setup.bash
+
+Windows:
+
+.. code-block:: bat
+
+	[BUILD]\install\discovery-server\bin>..\..\local_setup.bat
+	
+where:
+- the local_setup batch sets up the environment variables for the binary execution.
+- the discovery-server binary name depends on build configuration (debug introduces d postfix) an version number.
+- the config_file.xml is a placeholder for any xml config file that follows the `discovery-server.xsd <../../schemas/discovery-server.xsd>`_.
 

@@ -71,7 +71,7 @@ note that only the test matching the build (step 2) configuration would run.
 
 	[BUILD]/install/discovery-server/examples/C++/HelloWorldExampleDS/bin$ . ../../../../../local_setup.bash
 	
-in order to test the helloworld example open three terminals and run the above command. Then launch the application with different arguments:
+in order to test the `example <HelloWorldExample.html#example-application>`_ open three terminals and run the above command. Then launch the application with different arguments:
 
 .. code-block:: bash
 		
@@ -118,7 +118,7 @@ here --ctest-args allows you to specify the configuration (Debug or Release) of 
 	
 	[BUILD]\install\discovery-server\examples\C++\HelloWorldExampleDS\bin>..\..\..\..\..\local_setup.bat
 	
-To test the helloworld example open three consoles, run the above bat file and launch the application with different arguments:
+To test the helloworld example_ open three consoles, run the above bat file and launch the application with different arguments:
 
 .. code-block:: bat
 	
