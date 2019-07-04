@@ -3,8 +3,8 @@ Executable use
 
 **Table of Contents**
 
-:ref:`Basic concepts`
-:ref:`Use cases`
+* :ref:`Basic concepts`
+* :ref:`Directions for use`
 
 Basic concepts
 **************
@@ -13,43 +13,43 @@ Under the new client-server discovery paradigm, the metatraffic (message exchang
 
 .. uml::
 
-@startuml
+	@startuml
 
-package "Simple Discovery" {
+	package "Simple Discovery" {
 
-(participant 1) as p1
-(participant 2) as p2
-(participant 3) as p3
-(participant 4) as p4
-
-
-p1 <-right-> p2
-p1 <-left-> p3
-p1 <-up-> p4
-p2 <-up-> p3
-p2 <-> p4
-p3 <-> p4
-
-}
+	(participant 1) as p1
+	(participant 2) as p2
+	(participant 3) as p3
+	(participant 4) as p4
 
 
-package "Discovery Server" {
+	p1 <-right-> p2
+	p1 <-left-> p3
+	p1 <-up-> p4
+	p2 <-up-> p3
+	p2 <-> p4
+	p3 <-> p4
 
-' node "Discovery Server" as server
-cloud "Discovery Server" as server
-(participant 1) as ps1
-(participant 2) as ps2
-(participant 3) as ps3
-(participant 4) as ps4
+	}
 
-ps1 <-down-> server
-ps2 <-up-> server
-ps3 <-down-> server
-ps4 <-up-> server
 
-}
+	package "Discovery Server" {
 
-@enduml
+	' node "Discovery Server" as server
+	cloud "Discovery Server" as server
+	(participant 1) as ps1
+	(participant 2) as ps2
+	(participant 3) as ps3
+	(participant 4) as ps4
+
+	ps1 <-down-> server
+	ps2 <-up-> server
+	ps3 <-down-> server
+	ps4 <-up-> server
+
+	}
+
+	@enduml
 
 Clients must be aware of how to reach the server, usually by specifying an IP address and a transport protocol like UDP or TCP. Servers don't need any beforehand knowledge of clients but we must specify where they should be reached, usually by specifying a listening IP address and transport protocol.
 
@@ -75,38 +75,39 @@ BuiltinAttributes
 DiscoverySettings
 -----------------
 
-+ a `DiscoveryProtocol_t discoveryProtocol` member specifies participant's discovery kind:
++ a **DiscoveryProtocol_t discoveryProtocol** member specifies participant's discovery kind:
 	- **SIMPLE** generates a standard participant with complete backward compatibility with any other RTPS implementation.
 	- **CLIENT** generates a *client* participant, which relies on a server to be notified of other *clients* presence. This participant can create publishers and subscribers of any topic (static or dynamic) as ordinary participants do.
 	- **SERVER** generates a *server* participant, which receives, manages and spreads its linked *clients* metatraffic assuring any single one is aware of the others. This participant can create publishers and subscribers of any topic (static or dynamic) as ordinary participants do. Servers can link to other servers in order to share its clients information.
 	- **BACKUP** generates a *server* participant with additional functionality over **SERVER**. Specifically, it uses a database to backup its client information, so that if for whatever reason it disappears, it can be automatically restored and continue spreading metatraffic to late joiners. A **SERVER** in the same scenario ought to collect client information again, introducing a recovery delay.
 
-+ a `RemoteServerList_t  m_DiscoveryServers` lists the servers linked to the participant. This member has only significance if `discoveryProtocol` is **CLIENT**, **SERVER** or **BACKUP**. This member elements are `RemoteServerAttributes` objects that identify each server and report where to reach it:
-	- `GuidPrefix_t guidPrefix` is the RTPS unique identifier of the server participant we want to link to. There is a `ReadguidPrefix` method to easily fill in this member from a string formatted like `"4D.49.47.55.45.4c.5f.42.41.52.52.4f"` (note that each octec must be a valid hexadecimal figure).
-	- `metatrafficUnicastLocatorList` and `metatrafficMulticastLocatorList` are ordinary `LocatorList_t` (see fast-RTPS documentation) where server's locators must be specified. At least one of them should be populated.
-	- `Duration_t discoveryServer_client_syncperiod` specifies the time span between PDP metatraffic exchange, and has only significance if `discoveryProtocol` is **CLIENT**, **SERVER** or **BACKUP**. The default value is half a second.
++ a **RemoteServerList_t  m_DiscoveryServers** lists the servers linked to the participant. This member has only significance if **discoveryProtocol** is **CLIENT**, **SERVER** or **BACKUP**. This member elements are `RemoteServerAttributes` objects that identify each server and report where to reach it:
+	- **GuidPrefix_t guidPrefix** is the RTPS unique identifier of the server participant we want to link to. There is a `ReadguidPrefix` method to easily fill in this member from a string formatted like `"4D.49.47.55.45.4c.5f.42.41.52.52.4f"` (note that each octec must be a valid hexadecimal figure).
+	- **metatrafficUnicastLocatorList** and `metatrafficMulticastLocatorList` are ordinary `LocatorList_t` (see fast-RTPS documentation) where server's locators must be specified. At least one of them should be populated.
+	- **Duration_t discoveryServer_client_syncperiod** specifies the time span between PDP metatraffic exchange, and has only significance if `discoveryProtocol` is **CLIENT**, **SERVER** or **BACKUP**. The default value is half a second.
 	
 RTPS schema elements dealing with discovery services
 =====================================================
 
 Each of the attributes in fast-RTPS has an echo in the XML profiles. XML profiles make it possible to avoid tiresome hard-coded settings within applications sources using XML configuration files. The fast XML schema was duly updated to accommodate the new client-server attributes:
 
-+ The participant profile **rtps** tag contains a new optional **prefix** tag where the server `GuidPrefix_t` must be specified. Any other discovery selection as simple or clients may disregard this member.
++ The participant profile **rtps** tag contains a new optional **prefix** tag where the server **GuidPrefix_t** must be specified. Any other discovery selection as simple or clients may disregard this member.
 
 + The participant profile **builtin** tag contains a **discovery_config** tag where all discovery related info is gathered. This new tag contains the following new elements:
+
 	- a **discoveryProtocol** tag, where the discovery type can be specified through the `DiscoveryProtocol_t` enumeration quoted `above <DiscoverySettings_>`_.
 	- a **discoveryServersList** tag, where the server or servers linked with a participant can be specified.
 	- a **clientAnnouncementPeriod** tag, where the time span between PDP metatraffic exchange can be specified.
-	
+
 Below we provide an example xml participant profile using this new *tags*:	
-	
-.. literalinclude:: ../snippets/test_1_PDP_UDP.xml
+
+.. literalinclude:: ../tests/test_1_PDP_UDP.xml
     :language: XML
     :start-after: <profiles>
     :end-before: </profiles>
-	
-Use cases
-*********
+
+Directions for use
+******************
 
 The discovery server binary (named after the pattern :code:`discovery-server-X.X.X(d)` where X.X.X is the version number and the optional *d* denotes a debug builds) is setup from one or several xml config files passed as command line arguments. There are two modes of execution:
 
@@ -128,7 +129,7 @@ The discovery server binary (named after the pattern :code:`discovery-server-X.X
 
    > discovery-server-X.X.X(d).exe results_file_1.xml results_file_2.xml results_file_3.xml ...
    
-Note that if the colcon deployment strategy described in section `Installation steps`_ was followed, before using the binary we must setup the appropriate enviromental variables using colcon generated scripts:
+Note that if the colcon deployment strategy described in section `Installation steps <installation.html#installation-steps>` was followed, before using the binary we must setup the appropriate enviromental variables using colcon generated scripts:
 
 Linux:
 

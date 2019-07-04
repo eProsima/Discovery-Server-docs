@@ -3,10 +3,10 @@ Intallation
 
 **Table of Contents**
 
-:ref:`Dependencies`
-:ref:`Installation steps`
-:ref:`Linux setup steps`
-:ref:`Windows setup steps`
+* :ref:`Dependencies`
+* :ref:`Installation steps`
+* :ref:`Linux setup steps`
+* :ref:`Windows setup steps`
 
 Dependencies
 ************
@@ -19,14 +19,16 @@ The well known cross-platform tool colcon_ was chosen to simplify installation o
 
 The following repositories should be downloaded from github into a directory that henceforth would be called **SOURCES**:
 
-+ eProsima/Fast-CDR:			https://github.com/eProsima/Fast-CDR.git			
-	
-+ eProsima/Fast-RTPS:			https://github.com/eProsima/Fast-RTPS.git			
-	
-+ eProsima/Discovery-Server:	https://github.com/eProsima/Discovery-Server.git	
++----------------------------+--------------------------------------------------+
+| eProsima/Fast-CDR:         | https://github.com/eProsima/Fast-CDR.git         |
++----------------------------+--------------------------------------------------+
+| eProsima/Fast-RTPS:        | https://github.com/eProsima/Fast-RTPS.git        |
++----------------------------+--------------------------------------------------+
+| eProsima/Discovery-Server: | https://github.com/eProsima/Discovery-Server.git |
++----------------------------+--------------------------------------------------+
 
 
-We also assume that the user wants to keep the build, log and installation files in a separate directory called **[BUILD]**. If this is not the case, flag `--base-paths [SOURCES]` can be ignored in what follows.
+We also assume that the user wants to keep the build, log and installation files in a separate directory called **[BUILD]**. If this is not the case, flag **--base-paths [SOURCES]** can be ignored in what follows.
 
 .. _`fast RTPS`: https://eprosima-fast-rtps.readthedocs.io/en/latest/
 .. _colcon: https://colcon.readthedocs.io/en/released/
@@ -44,10 +46,13 @@ Linux setup steps
 
 Valid placeholders for the linux example may be:
 
-| PLACEHOLDER	|             EXAMPLE PATHS				 |
-|:--------------|:--------------------------------------:|
-|[SOURCES] 	 	| /home/username/Documents/colcon_sources|
-|[BUILD]  	 	| /home/username/Documents/colcon_build  |
++---------------+----------------------------------------+
+| PLACEHOLDER   |             EXAMPLE PATHS              |
++===============+========================================+
+|[SOURCES]      | /home/username/Documents/colcon_sources|
++---------------+----------------------------------------+
+|[BUILD]        |/home/username/Documents/colcon_build   |
++---------------+----------------------------------------+
 
 1. Create directory **[BUILD]** where we want to keep the build, install and log compilation results. 
 
@@ -84,10 +89,13 @@ Windows setup steps
 
 Valid placeholders for the windows example may be:
 
-| PLACEHOLDER	|             EXAMPLE PATHS			 		|
-|:--------------|:-----------------------------------------:|
-|[SOURCES] 	 	| C:\Users\username\Documents\colcon_sources|
-|[BUILD]  	 	| C:\Users\username\Documents\colcon_build  |
++---------------+--------------------------------------------+
+| PLACEHOLDER   |             EXAMPLE PATHS                  |
++===============+============================================+
+|\[SOURCES\]    |  C:\Users\username\Documents\colcon_sources|
++---------------+--------------------------------------------+
+|\[BUILD\]      | C:\Users\username\Documents\colcon_build   |
++---------------+--------------------------------------------+
 
 1. Create directory **[BUILD]** where you want to keep the build, install and log compilation results. 
 
@@ -112,7 +120,7 @@ If you are using a single configuration tool just make above call with your conf
 		
 here --ctest-args allows you to specify the configuration (Debug or Release) of interest (names are case sensitive). If you are using a single configuration tool this flag has no effect, as only the test matching the build (step 3) configuration would run.
 
-5. In order to run the example, navigate to directory **[BUILD]**\install\discovery-server\examples\HelloWorldExampleDS\bin and run the executable, running first the configuration bat file located within install folder in order to set required environment variables:
+5. In order to run the example, navigate to directory **[BUILD]**\\install\\discovery-server\\examples\\HelloWorldExampleDS\\bin and run the executable, running first the configuration bat file located within install folder in order to set required environment variables:
 
 .. code-block:: bat
 	
