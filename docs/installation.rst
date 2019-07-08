@@ -11,13 +11,18 @@ Intallation
 Dependencies
 ************
 
-In order to use discovery server its necessary have a compatible version of `fast RTPS`_ installed (over release 1.9.0). Fast RTPS dependencies as tinyxml_ must be accessible, either because Fast RTPS was build-installed defining THIRDPARTY=ON or because those libraries have been specifically installed.
+In order to use discovery server its necessary have a compatible version of `fast RTPS`_ installed (over release 1.9.0).
+ Fast RTPS dependencies as tinyxml_ must be accessible, either because Fast RTPS was build-installed defining
+ THIRDPARTY=ON or because those libraries have been specifically installed.
 
 .. in the future we may need to reference OpenSSH when security layer is implemented for PDPClient and PDPServer.
 
-The well known cross-platform tool colcon_ was chosen to simplify installation of the several mutually dependent CMake_ projects. In order to use colcon_,  python_ and CMake_ must be already installed as detailed in the corresponding hyperlinks.
+The well known cross-platform tool colcon_ was chosen to simplify installation of the several mutually dependent CMake_
+ projects. In order to use colcon_,  python_ and CMake_ must be already installed as detailed in the corresponding
+ hyperlinks.
 
-The following repositories should be downloaded from github into a directory that henceforth would be called **SOURCES**:
+The following repositories should be downloaded from github into a directory that henceforth would be called
+ **SOURCES**:
 
 +----------------------------+--------------------------------------------------+
 | eProsima/Fast-CDR:         | https://github.com/eProsima/Fast-CDR.git         |
@@ -28,7 +33,8 @@ The following repositories should be downloaded from github into a directory tha
 +----------------------------+--------------------------------------------------+
 
 
-We also assume that the user wants to keep the build, log and installation files in a separate directory called **[BUILD]**. If this is not the case, flag **--base-paths [SOURCES]** can be ignored in what follows.
+We also assume that the user wants to keep the build, log and installation files in a separate directory called
+ **[BUILD]**. If this is not the case, flag **--base-paths [SOURCES]** can be ignored in what follows.
 
 .. _`fast RTPS`: https://eprosima-fast-rtps.readthedocs.io/en/latest/
 .. _colcon: https://colcon.readthedocs.io/en/released/
@@ -39,7 +45,8 @@ We also assume that the user wants to keep the build, log and installation files
 Installation steps
 ==================
 
-Discovery Server supports the same platforms supported by fast RTPS: windows, linux and Mac. We proceed to detail each platform specifics.
+Discovery Server supports the same platforms supported by fast RTPS: windows, linux and Mac. We proceed to detail each
+ platform specifics.
 
 Linux setup steps
 -----------------
@@ -56,7 +63,8 @@ Valid placeholders for the linux example may be:
 
 1. Create directory **[BUILD]** where we want to keep the build, install and log compilation results. 
 
-2. Compile using the colcon tool. Choose the build configuration by declaring CMAKE_BUILD_TYPE as Debug or Release. In this example we've chosen Debug:
+2. Compile using the colcon tool. Choose the build configuration by declaring CMAKE_BUILD_TYPE as Debug or Release.
+   In this example we've chosen Debug:
 
 .. code-block:: bash
 
@@ -70,13 +78,16 @@ Valid placeholders for the linux example may be:
 
 note that only the test matching the build (step 2) configuration would run.
 
-4. To run the example navigate to directory **[BUILD]**/install/discovery-server/examples/HelloWorldExampleDS/bin. The configuration bash file located in the install folder must be run first in order to set the required environment variables:
+4. To run the example navigate to directory **[BUILD]**/install/discovery-server/examples/HelloWorldExampleDS/bin.
+   The configuration bash file located in the install folder must be run first in order to set the required
+   environment variables:
 
 .. code-block:: bash
 
 	[BUILD]/install/discovery-server/examples/C++/HelloWorldExampleDS/bin$ . ../../../../../local_setup.bash
 	
-in order to test the `example <HelloWorldExample.html#example-application>`_ open three terminals and run the above command. Then launch the application with different arguments:
+in order to test the `example <HelloWorldExample.html#example-application>`_ open three terminals and run the above
+ command. Then launch the application with different arguments:
 
 .. code-block:: bash
 		
@@ -99,11 +110,13 @@ Valid placeholders for the windows example may be:
 
 1. Create directory **[BUILD]** where you want to keep the build, install and log compilation results. 
 
-2. If your generator (compiler) of choice is Visual Studio, launch colcon from a visual studio console. Any console can be setup into a visual studio one by executing a batch file. For example in VS2017 is usually::
+2. If your generator (compiler) of choice is Visual Studio, launch colcon from a visual studio console. Any console
+   can be setup into a visual studio one by executing a batch file. For example in VS2017 is usually::
 
 	C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat
 
-3. Compile using the colcon tool. If you are using a multi-configuration generator like Visual Studio we recommend to build both in debug and release modes:
+3. Compile using the colcon tool. If you are using a multi-configuration generator like Visual Studio we recommend to
+   build both in debug and release modes:
 
 .. code-block:: bat
 		
@@ -118,15 +131,20 @@ If you are using a single configuration tool just make above call with your conf
 
 	[BUILD]> colcon test --base-paths [SOURCES] --packages-select discovery-server --ctest-args -C Debug
 		
-here --ctest-args allows you to specify the configuration (Debug or Release) of interest (names are case sensitive). If you are using a single configuration tool this flag has no effect, as only the test matching the build (step 3) configuration would run.
+here --ctest-args allows you to specify the configuration (Debug or Release) of interest (names are case sensitive).
+ If you are using a single configuration tool this flag has no effect, as only the test matching the build (step 3)
+ configuration would run.
 
-5. In order to run the example, navigate to directory **[BUILD]**\\install\\discovery-server\\examples\\HelloWorldExampleDS\\bin and run the executable, running first the configuration bat file located within install folder in order to set required environment variables:
+5. In order to run the example, navigate to directory 
+   **[BUILD]**\\install\\discovery-server\\examples\\HelloWorldExampleDS\\bin and run the executable,
+   running first the configuration bat file located within install folder in order to set required environment variables:
 
 .. code-block:: bat
 	
 	[BUILD]\install\discovery-server\examples\C++\HelloWorldExampleDS\bin>..\..\..\..\..\local_setup.bat
 	
-To test the helloworld example_ open three consoles, run the above bat file and launch the application with different arguments:
+To test the helloworld example_ open three consoles, run the above bat file and launch the application with different
+ arguments:
 
 .. code-block:: bat
 	
