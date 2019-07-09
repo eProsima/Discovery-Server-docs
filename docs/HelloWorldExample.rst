@@ -263,7 +263,7 @@ As an example we show here the configuration files associated with each specific
 HelloWorld_UDP_config.xml
 -------------------------
 
-.. literalinclude:: ..\examples\HelloWorld_UDP_config.xml
+.. literalinclude:: ../examples/HelloWorld_UDP_config.xml
     :linenos:
     :language: xml
     :start-after:	<profiles> 
@@ -281,7 +281,7 @@ whatever value without affecting the discovery operation.
 HelloWorld_TCP_config.xml
 -------------------------
 
-.. literalinclude:: ..\examples\HelloWorld_TCP_config.xml
+.. literalinclude:: ../examples/HelloWorld_TCP_config.xml
     :linenos:
     :language: xml
     :start-after:	<profiles> 
@@ -304,7 +304,7 @@ The xml basic mimics the `TCP attribute source code <#tcp-transport-code-setup-f
 HelloWorld_UDP_TCP_config.xml
 -----------------------------
 
-.. literalinclude:: ..\examples\HelloWorld_UDP_TCP_config.xml
+.. literalinclude:: ../examples/HelloWorld_UDP_TCP_config.xml
     :linenos:
     :language: xml
     :start-after:	<profiles> 

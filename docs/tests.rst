@@ -44,7 +44,7 @@ This is the most simple scenario: a single server manages the discovery informat
 and listening ports are given in the profiles **UDP server** and **UDP client**. A snapshot is taken after 3 seconds
 to assess that all clients are aware of the existence of each other.
 
-.. literalinclude:: ..\tests\test_1_PDP_UDP.xml
+.. literalinclude:: ../tests/test_1_PDP_UDP.xml
 	:language: xml
 	:start-after:	<!-- This test merely assess the clients can locate a UDP server -->
 	:end-before:	<profiles>
@@ -90,7 +90,7 @@ We'll only get this with the debug binary. On Release mode we can resort to prov
 Then an xml file will be generated with the same info (note that generating an xml automatically disables validation
 thus it cannot be used in singleton tests).
 
-.. literalinclude:: ..\tests\test_1_snapshot.xml
+.. literalinclude:: ../tests/test_1_snapshot.xml
 	:language: xml
 	:start-after:	<DS_Snapshots>
 	:end-before:	</DS_Snapshots>
@@ -110,7 +110,7 @@ other.
  
 Specific transport descriptor must be created for server and clients:
   
-.. literalinclude:: ..\tests\test_2_PDP_TCP.xml
+.. literalinclude:: ../tests/test_2_PDP_TCP.xml
 	:language: xml
 	:start-after:	<transport_descriptors>
 	:end-before:	</transport_descriptors>
@@ -148,7 +148,7 @@ information of four clients with different lifespans. The server prefix and list
 **UDP server** and **UDP client**. A snapshot is taken whenever there is a participant creation or removal to assess
 all entities are aware of it.
 
-.. literalinclude:: ..\tests\test_3_PDP_UDP.xml
+.. literalinclude:: ../tests/test_3_PDP_UDP.xml
 	:language: xml
 	:start-after:	<!-- This test merely assess the server capability to handle client changes -->
 	:end-before:	<profiles>
@@ -168,7 +168,7 @@ attributes to avoid create redundant boilerplate profiles:
     - *client* **server** attribute is used to link a client with its server without using a new profile or a
       **ServerList**.
 	
-.. literalinclude:: ..\tests\test_4_PDP_UDP.xml
+.. literalinclude:: ../tests/test_4_PDP_UDP.xml
 	:language: xml
 	:start-after:	-->
 	:end-before:	<profiles>
@@ -179,7 +179,7 @@ test_5_EDP_UDP.xml & test_5_EDP_TCP.xml
 These tests introduce dummy publishers and subscribers to assess proper EDP discovery operation over UDP and TCP
 transport. A server and two clients are created, and each participant (server included) creates publishers and subscribers with different types and topics. At the end a snapshot is taken to verify all publishers and subscribers have been reported by all participants. Note that the tags *publisher* and *subscriber* have attributes to superseed topics specified in profiles.
 
-.. literalinclude:: ..\tests\test_5_EDP_TCP.xml
+.. literalinclude:: ../tests/test_5_EDP_TCP.xml
 	:language: xml
 	:start-after:	-->
 	:end-before:	<profiles>
@@ -270,7 +270,7 @@ different lifespans. Each participant (server included) creates publishers and s
 types and topics. Snapshots are taken whenever an enpoint is created or destroyed to assess every participant shares
 the same discovery info.
 
-.. literalinclude:: ..\tests\test_6_EDP_UDP.xml
+.. literalinclude:: ../tests/test_6_EDP_UDP.xml
 	:language: xml
 	:start-after:	-->
 	:end-before:	<profiles>
@@ -283,7 +283,7 @@ Here we test how the discovery handles server shutdown and reboot. This is a cle
 automatically begin pinging on the server again trying to reconnect when its rebooted. Snapshots check that clients
 are aware of server absence after shutdown and presence after reboot.
 
-.. literalinclude:: ..\tests\test_7_PDP_UDP.xml
+.. literalinclude:: ../tests/test_7_PDP_UDP.xml
 	:language: xml
 	:start-after:	-->
 	:end-before:	<profiles>
