@@ -7,8 +7,8 @@ Example application
 * :ref:`TCP transport attribute settings`
 * :ref:`HelloWorldExample command line syntax`
 
-The fast-RTPS **HelloWorldExample** has been updated to illustrate the client-server functionality. Its installation
-details are explained in `installation section <installation.html>`_. Basically, the publisher and subscriber
+The Fast-RTPS **HelloWorldExample** has been updated to illustrate the client-server functionality. Its installation
+details are explained in the `installation section <installation.html>`_. Basically, the publisher and subscriber
 participants are now *clients* and can only discover each other when a *server* participant is created.
 
 As usual, we launch publishers and subscribers by running HelloWorldExampleDS.exe with the corresponding **publisher**
@@ -19,7 +19,7 @@ and hard code the server's reference.
 UDP transport attribute settings
 --------------------------------
 
-In order to use UDP we can rely in the default transport where the locators are actual ports and IP addresses.
+In order to use UDP we can rely on the default transport where the locators are actual ports and IP addresses.
 
 UDP transport code setup for a client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,10 +67,10 @@ UDP transport code setup for a server
 
     mp_participant = Domain::createParticipant(PParam);
 
-Note that according with `former attributes explanation <command_line#rtps-attributes-dealing-with-discovery-services>`_
+Note that according to `former attributes explanation <command_line#rtps-attributes-dealing-with-discovery-services>`_
 we must populate the **DiscoverySettings discovery_config** specifying we want to create a
 **DiscoveryProtocol_t::SERVER** and adding a new listening locator to any **BuiltinAttributes** metatraffic lists
-(this locator or locators must be known by the clients). In this case the UDP port 65215 is hardcoded as is the
+(this locator or locators must be known by the clients). In this case, the UDP port 65215 is hardcoded as is the
 server prefix.
 
 TCP transport attribute settings
@@ -120,7 +120,7 @@ The **DiscoverySettings discovery_config** is almost the same as in
 `UDP client case <#udp-transport-code-setup-of-a-client>`_.  Note that here the *server_address* locator
 specifies 65215 as a logical port and 9843 as a physical one. The reason behind this is that TCP transport was
 devised in order to allow a single TCP connection tunnel several participants traffic through it.
-In order to differenciate each participant sharing the connection a *logical port concept* was introduced.
+In order to differentiate each participant sharing the connection, a *logical port concept* was introduced.
 The transport will understand that must connect to the physical port (using TCP protocol) and rely meta traffic
 to the logical port 65215 which is the meta traffic mailbox of the server we are interested in.
 
@@ -167,7 +167,7 @@ meta traffic to the server.
 HelloWorldExample command line syntax
 =====================================
 
-The enviromental variables must be appropriately setup as explained in the
+The environmental variables must be appropriately set up as explained in the
 `installation steps <installation.html#installation-steps>`_ by employing a colcon generated script file.
 For colcon builds the relative path to the script from the example directory would be:
 
@@ -182,7 +182,7 @@ Windows::
 otherwise modify the console PATH or terminal LIB_PATH_DIR environmental variables to allow the example binary to locate
 fast shared libraries.
 
-The command line syntax is the usual for the HelloWorldExample although a new flag **-t** or **--tcp** is introduced to
+The command-line syntax is the usual for the HelloWorldExample although a new flag **-t** or **--tcp** is introduced to
 enforce the use of tcp transport:
 
 Linux:
@@ -241,7 +241,7 @@ Windows:
 
 		> HelloWorldExampleDS server
 
-The HelloWorldExampleDS server instance can be replace by a discovery-server instance that creates a suitable server.
+The HelloWorldExampleDS server instance can be replaced by a discovery-server instance that creates a suitable server.
 Thus instead of calling :code:`HelloWorldExample --server` we can call:
 
 Windows:
@@ -269,7 +269,7 @@ HelloWorld_UDP_config.xml
     :start-after:	<profiles>
     :end-before:	</profiles>
 
-The xml basic mimics the `UDP attribute source code <#upd-transport-code-setup-for-a-server>`_ shown above:
+The XML basically mimics the `UDP attribute source code <#upd-transport-code-setup-for-a-server>`_ showed above:
 
  + server prefix is specified.
  + discovery kind set to SERVER.
@@ -287,10 +287,10 @@ HelloWorld_TCP_config.xml
     :start-after:	<profiles>
     :end-before:	</profiles>
 
-The xml basic mimics the `TCP attribute source code <#tcp-transport-code-setup-for-a-server>`_ shown above:
+The XML basically mimics the `TCP attribute source code <#tcp-transport-code-setup-for-a-server>`_ showed above:
 
  + a tcp transport descriptor is created specifying the physical listening port as 9843.
- + the above transport descriptor is add to the participant user transports.
+ + the above transport descriptor is added to the participant user transports.
  + builtin transport is disabled to avoid UDP operation. This wouldn't disturb TCP communication in any way and is
    specified merely to prove that the actual discovery traffic is not going through UDP.
  + server prefix is specified
@@ -310,18 +310,18 @@ HelloWorld_UDP_TCP_config.xml
     :start-after:	<profiles>
     :end-before:	</profiles>
 
-The above xml config generates a server able to listen simultaneously on TCP or UDP ports. It mixes concepts from
-previos UDP and TCP config files:
+The above XML config generates a server able to listen simultaneously on TCP or UDP ports. It mixes concepts from
+previous UDP and TCP config files:
 
  + a tcp transport descriptor is created specifying the physical listening port as 9843.
- + the above transport descriptor is add to the participant user transports.
+ + the above transport descriptor is added to the participant user transports.
  + builtin transport is not disabled in order to allow UDP traffic.
  + server prefix is specified
  + discovery kind set to SERVER.
  + metatrafic locators set to the logical TCP listening port and UDP actual IP address and listening port. Note that
    are both set to 65215 but this doesn't arise any problems because TCP is a logical port and has no physical meaning.
 
-Using this last config xml file to generate a server allows, not only that participants with the same transport
+Using this last config XML file to generate a server allows, not only that participants with the same transport
 (either UDP or TCP) discover each other, but that all participants (disregarding selected transport) discover
 each other. A publisher in a TCP participant can match a subscriber in a TCP one (they cannot exchange data although
 because as HelloWorldExample clients are setup only one transport is selected).

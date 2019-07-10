@@ -1,5 +1,5 @@
-Intallation
-###########
+Installation
+############
 
 **Table of Contents**
 
@@ -11,14 +11,14 @@ Intallation
 Dependencies
 ************
 
-In order to use discovery server its necessary have a compatible version of `fast RTPS`_ installed (over release 1.9.0).
+In order to use discovery server, its necessary have a compatible version of `Fast RTPS`_ installed (over release 1.9.0).
 Fast RTPS dependencies as tinyxml_ must be accessible, either because Fast RTPS was build-installed defining
 THIRDPARTY=ON or because those libraries have been specifically installed.
 
 .. in the future we may need to reference OpenSSH when security layer is implemented for PDPClient and PDPServer.
 
-The well known cross-platform tool colcon_ was chosen to simplify installation of the several mutually dependent CMake_
-projects. In order to use colcon_,  python_ and CMake_ must be already installed as detailed in the corresponding
+The well known cross-platform tool colcon_ was chosen to simplify the installation of the several mutually dependent
+CMake_ projects. In order to use colcon_,  python_ and CMake_ must be already installed as detailed in the corresponding
 hyperlinks.
 
 A discovery-server.repos_ file is available in order to profit from vcstool capabilities to download the needed
@@ -27,11 +27,11 @@ discovery-server.repos_ and call:
 
 Linux::
 
-[SOURCES]$ ./vs import --input discovery-server.repos
+[SOURCES]$ vcs import --input discovery-server.repos
 
 Windows::
 
-[SOURCES]> vs import --input discovery-server.repos
+[SOURCES]> vcs import --input discovery-server.repos
 
 on the **[SOURCES]** directory where the user wants to keep the repositories.
 
@@ -53,22 +53,22 @@ In order to avoid using vcstool the following repositories should be downloaded 
 We also assume that the user wants to keep the build, log and installation files in a separate directory called
 **[BUILD]**. If this is not the case, flag **--base-paths [SOURCES]** can be ignored in what follows.
 
-.. _`fast RTPS`: https://eprosima-fast-rtps.readthedocs.io/en/latest/
+.. _`Fast RTPS`: https://eprosima-Fast-RTPS.readthedocs.io/en/latest/
 .. _colcon: https://colcon.readthedocs.io/en/released/
 .. _CMake: https://cmake.org/cmake/help/latest/
 .. _python: https://www.python.org/
 .. _tinyxml: https://github.com/leethomason/tinyxml2.git
 
 Installation steps
-==================
+******************
 
-Discovery Server supports the same platforms supported by fast RTPS: windows, linux and Mac. We proceed to detail each
+Discovery Server supports the same platforms supported by Fast-RTPS: Windows, Linux and Mac. We proceed to detail each
 platform specifics.
 
 Linux setup steps
 -----------------
 
-Valid placeholders for the linux example may be:
+Valid placeholders for the Linux example may be:
 
 +---------------+----------------------------------------+
 | PLACEHOLDER   |             EXAMPLE PATHS              |
@@ -81,7 +81,7 @@ Valid placeholders for the linux example may be:
 1. Create directory **[BUILD]** where we want to keep the build, install and log compilation results.
 
 2. Compile using the colcon tool. Choose the build configuration by declaring CMAKE_BUILD_TYPE as Debug or Release.
-   In this example we've chosen Debug:
+   In this example we've chosen Debug which would be the choice of advance users for debugging purposes:
 
 .. code-block:: bash
 
@@ -103,7 +103,7 @@ note that only the test matching the build (step 2) configuration would run.
 
     [BUILD]/install/discovery-server/examples/C++/HelloWorldExampleDS/bin$ . ../../../../../local_setup.bash
 
-in order to test the `example <HelloWorldExample.html#example-application>`_ open three terminals and run the above
+In order to test the `example <HelloWorldExample.html#example-application>`_ open three terminals and run the above
 command. Then launch the application with different arguments:
 
 .. code-block:: bash
@@ -117,24 +117,24 @@ Windows setup steps
 
 Valid placeholders for the windows example may be:
 
-+---------------+--------------------------------------------+
-| PLACEHOLDER   |             EXAMPLE PATHS                  |
-+===============+============================================+
-|\[SOURCES\]    |  C:\Users\username\Documents\colcon_sources|
-+---------------+--------------------------------------------+
-|\[BUILD\]      | C:\Users\username\Documents\colcon_build   |
-+---------------+--------------------------------------------+
++---------------+------------------------------------------------+
+| PLACEHOLDER   |             EXAMPLE PATHS                      |
++===============+================================================+
+|\[SOURCES\]    |  C:\\Users\\username\\Documents\\colcon_sources|
++---------------+------------------------------------------------+
+|\[BUILD\]      | C:\\Users\\username\\Documents\\colcon_build   |
++---------------+------------------------------------------------+
 
 1. Create directory **[BUILD]** where you want to keep the build, install and log compilation results.
 
-2. If your generator (compiler) of choice is Visual Studio, launch colcon from a visual studio console. Any console
-   can be setup into a visual studio one by executing a batch file. For example in VS2017 is usually:
+2. If the generator (compiler) of choice is Visual Studio, launch colcon from a visual studio console. Any console
+   can be set up into a visual studio one by executing a batch file. For example in VS2017 is usually:
 
 .. code-block:: text
 
    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat
 
-3. Compile using the colcon tool. If you are using a multi-configuration generator like Visual Studio we recommend to
+3. Compile using the colcon tool. If using a multi-configuration generator like Visual Studio we recommend to
    build both in debug and release modes:
 
 .. code-block:: bat
@@ -142,7 +142,7 @@ Valid placeholders for the windows example may be:
     [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Debug
     [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release
 
-If you are using a single configuration tool just make above call with your configuration of choice.
+If using a single configuration tool just make the above call with your configuration of choice.
 
 4. In order to run the tests in a multi-configuration generator like Visual Studio use the following command:
 
@@ -150,13 +150,14 @@ If you are using a single configuration tool just make above call with your conf
 
     [BUILD]> colcon test --base-paths [SOURCES] --packages-select discovery-server --ctest-args -C Debug
 
-here --ctest-args allows you to specify the configuration (Debug or Release) of interest (names are case sensitive).
-If you are using a single configuration tool this flag has no effect, as only the test matching the build (step 3)
+here --ctest-args allows to specify the configuration (Debug or Release) of interest (names are case sensitive).
+If using a single configuration tool this flag has no effect, as only the test matching the build (step 3)
 configuration would run.
 
-5. In order to run the example, navigate to directory
+5. In order to run the example, navigate to the directory
    **[BUILD]**\\install\\discovery-server\\examples\\HelloWorldExampleDS\\bin and run the executable,
-   running first the configuration bat file located within install folder in order to set required environment variables:
+   running first the configuration bat file located within the install folder in order to set required environment
+   variables:
 
 .. code-block:: bat
 
