@@ -9,7 +9,7 @@ Example application
 
 The fast-RTPS **HelloWorldExample** has been updated to illustrate the client-server functionality. Its installation
 details are explained in `installation section <installation.html>`_. Basically, the publisher and subscriber
-participants are now *clients* and can only discover each other when a *server* participant is created. 
+participants are now *clients* and can only discover each other when a *server* participant is created.
 
 As usual, we launch publishers and subscribers by running HelloWorldExampleDS.exe with the corresponding **publisher**
 or **subscriber** argument. Each publisher and subscriber is launched within its own participant, but now the
@@ -34,15 +34,15 @@ UDP transport code setup for a client
     PParam.rtps.builtin.domainId = 0;
     PParam.rtps.builtin.discovery_config.leaseDuration = c_TimeInfinite;
     PParam.rtps.setName("Participant_pub");
-	
+
     Locator_t server_address(LOCATOR_KIND_UDPv4, 65215);
     IPLocator::setIPv4(server_address, 127, 0, 0, 1);
 
     ratt.metatrafficUnicastLocatorList.push_back(server_address);
     PParam.rtps.builtin.discovery_config.m_DiscoveryServers.push_back(ratt);
-	
+
     mp_participant = Domain::createParticipant(PParam);
-	
+
 Note that according with `former attributes explanation <command_line#rtps-attributes-dealing-with-discovery-services>`_
 we must populate the **DiscoverySettings discovery_config** specifying we want to create a
 **DiscoveryProtocol_t::CLIENT** and adding a new *RemoteServerAttributes* object to the *m_DiscoveryServers* list.
@@ -59,14 +59,14 @@ UDP transport code setup for a server
     PParam.rtps.builtin.domainId = 0;
     PParam.rtps.builtin.discovery_config.leaseDuration = c_TimeInfinite;
     PParam.rtps.setName("Participant_server");
-	
+
     Locator_t server_address(LOCATOR_KIND_UDPv4, 65215);
     IPLocator::setIPv4(server_address, 127, 0, 0, 1);
 
     PParam.rtps.builtin.metatrafficUnicastLocatorList.push_back(server_address);
-	
+
     mp_participant = Domain::createParticipant(PParam);
-	
+
 Note that according with `former attributes explanation <command_line#rtps-attributes-dealing-with-discovery-services>`_
 we must populate the **DiscoverySettings discovery_config** specifying we want to create a
 **DiscoveryProtocol_t::SERVER** and adding a new listening locator to any **BuiltinAttributes** metatraffic lists
@@ -93,11 +93,11 @@ TCP transport code setup for a client
     PParam.rtps.builtin.domainId = 0;
     PParam.rtps.builtin.discovery_config.leaseDuration = c_TimeInfinite;
     PParam.rtps.setName("Participant_pub");
-	
-    Locator_t server_address; 
+
+    Locator_t server_address;
     server_address.kind = LOCATOR_KIND_TCPv4;
     IPLocator::setLogicalPort(server_address, 65215);
-    IPLocator::setPhysicalPort(server_address, 9843); 
+    IPLocator::setPhysicalPort(server_address, 9843);
     IPLocator::setIPv4(server_address, 127, 0, 0, 1);
 
     ratt.metatrafficUnicastLocatorList.push_back(server_address);
@@ -115,7 +115,7 @@ TCP transport code setup for a client
     PParam.rtps.userTransports.push_back(descriptor);
 
     mp_participant = Domain::createParticipant(PParam);
-	
+
 The **DiscoverySettings discovery_config** is almost the same as in
 `UDP client case <#udp-transport-code-setup-of-a-client>`_.  Note that here the *server_address* locator
 specifies 65215 as a logical port and 9843 as a physical one. The reason behind this is that TCP transport was
@@ -140,7 +140,7 @@ TCP transport code setup for a server
     PParam.rtps.builtin.discovery_config.leaseDuration = c_TimeInfinite;
     PParam.rtps.setName("Participant_server");
 
-    Locator_t server_address; 
+    Locator_t server_address;
     server_address.kind = LOCATOR_KIND_TCPv4;
     IPLocator::setLogicalPort(server_address, 65215);
     IPLocator::setIPv4(server_address, 127, 0, 0, 1);
@@ -158,11 +158,11 @@ TCP transport code setup for a server
 
 The **DiscoverySettings discovery_config** is almost the same as in
 `UDP server case <#udp-transport-code-setup-of-a-server>`_. Note that here the *server_address* locator specifies
-65215 as a logical port instead of a physical one. 
+65215 as a logical port instead of a physical one.
 
 A new TCPv4TransportDescriptor must be created and a physical listening port selected. Unlike the client code this
 listening port (9843 in the example) must be known beforehand for all clients in order to successfully deliver
-meta traffic to the server. 
+meta traffic to the server.
 
 HelloWorldExample command line syntax
 =====================================
@@ -174,11 +174,11 @@ For colcon builds the relative path to the script from the example directory wou
 Linux::
 
 	$ . ../../../../../local_setup.bash
-		
+
 Windows::
 
 	>..\..\..\..\..\local_setup.bat
-		
+
 otherwise modify the console PATH or terminal LIB_PATH_DIR environmental variables to allow the example binary to locate
 fast shared libraries.
 
@@ -190,7 +190,7 @@ Linux:
 .. code-block:: bash
 
 	$ ./HelloWorldExampleDS publisher|subscriber|server [ -h | -t | -c [<num>] | -i [<num>] ]
-	
+
 Windows:
 
 .. code-block:: bat
@@ -210,35 +210,35 @@ Windows:
 +----------+------------------+---------------------------------------------------------+
 
 The main difference with the plain HelloWorldExample is that additionally to the Publisher and Subscriber instance we
-must launch a server instance in order to allow publishers and subscribers to discover each other. A simple test 
+must launch a server instance in order to allow publishers and subscribers to discover each other. A simple test
 would be as follows:
 
 Linux:
 
 	Terminal 1::
-	
+
 		$ ./HelloWorldExampleDS publisher
-		
+
 	Terminal 2::
-	
-		$ ./HelloWorldExampleDS subscriber	
+
+		$ ./HelloWorldExampleDS subscriber
 
 	Terminal 3::
-	
-		$ ./HelloWorldExampleDS server	
+
+		$ ./HelloWorldExampleDS server
 
 Windows:
-	
+
 	Console 1::
-	
+
 		> HelloWorldExampleDS publisher
-	
+
 	Console 2::
-	
+
 		> HelloWorldExampleDS subscriber
-	
+
 	Console 3::
-	
+
 		> HelloWorldExampleDS server
 
 The HelloWorldExampleDS server instance can be replace by a discovery-server instance that creates a suitable server.
@@ -249,7 +249,7 @@ Windows:
 .. code-block:: bat
 
 	> discovery-server-X.X.X(d).exe config-file.xml
-	
+
 Linux:
 
 .. code-block:: bash
@@ -266,7 +266,7 @@ HelloWorld_UDP_config.xml
 .. literalinclude:: ../examples/HelloWorld_UDP_config.xml
     :linenos:
     :language: xml
-    :start-after:	<profiles> 
+    :start-after:	<profiles>
     :end-before:	</profiles>
 
 The xml basic mimics the `UDP attribute source code <#upd-transport-code-setup-for-a-server>`_ shown above:
@@ -274,8 +274,8 @@ The xml basic mimics the `UDP attribute source code <#upd-transport-code-setup-f
  + server prefix is specified.
  + discovery kind set to SERVER.
  + metatrafic locators set to the UDP listening port.
- 
-Note that leaseDuration was set to INFINITY in order to mimic the HelloWorldExample usual participants but can be 
+
+Note that leaseDuration was set to INFINITY in order to mimic the HelloWorldExample usual participants but can be
 whatever value without affecting the discovery operation.
 
 HelloWorld_TCP_config.xml
@@ -284,7 +284,7 @@ HelloWorld_TCP_config.xml
 .. literalinclude:: ../examples/HelloWorld_TCP_config.xml
     :linenos:
     :language: xml
-    :start-after:	<profiles> 
+    :start-after:	<profiles>
     :end-before:	</profiles>
 
 The xml basic mimics the `TCP attribute source code <#tcp-transport-code-setup-for-a-server>`_ shown above:
@@ -297,17 +297,17 @@ The xml basic mimics the `TCP attribute source code <#tcp-transport-code-setup-f
  + discovery kind set to SERVER.
  + metatrafic locators set to the logical listening port. The real TCP locator is provided in the transport this one
    is merely a port number that is linked with this particular server.
- 
- Again, note that leaseDuration was set to INFINITY in order to mimic the HelloWorldExample usual participants but 
+
+ Again, note that leaseDuration was set to INFINITY in order to mimic the HelloWorldExample usual participants but
  can be whatever value without affecting the discovery operation.
- 
+
 HelloWorld_UDP_TCP_config.xml
 -----------------------------
 
 .. literalinclude:: ../examples/HelloWorld_UDP_TCP_config.xml
     :linenos:
     :language: xml
-    :start-after:	<profiles> 
+    :start-after:	<profiles>
     :end-before:	</profiles>
 
 The above xml config generates a server able to listen simultaneously on TCP or UDP ports. It mixes concepts from
@@ -320,11 +320,11 @@ previos UDP and TCP config files:
  + discovery kind set to SERVER.
  + metatrafic locators set to the logical TCP listening port and UDP actual IP address and listening port. Note that
    are both set to 65215 but this doesn't arise any problems because TCP is a logical port and has no physical meaning.
- 
+
 Using this last config xml file to generate a server allows, not only that participants with the same transport
 (either UDP or TCP) discover each other, but that all participants (disregarding selected transport) discover
 each other. A publisher in a TCP participant can match a subscriber in a TCP one (they cannot exchange data although
 because as HelloWorldExample clients are setup only one transport is selected).
- 
+
 
 

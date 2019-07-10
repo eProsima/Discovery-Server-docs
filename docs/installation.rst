@@ -78,7 +78,7 @@ Valid placeholders for the linux example may be:
 |[BUILD]        |/home/username/Documents/colcon_build   |
 +---------------+----------------------------------------+
 
-1. Create directory **[BUILD]** where we want to keep the build, install and log compilation results. 
+1. Create directory **[BUILD]** where we want to keep the build, install and log compilation results.
 
 2. Compile using the colcon tool. Choose the build configuration by declaring CMAKE_BUILD_TYPE as Debug or Release.
    In this example we've chosen Debug:
@@ -86,12 +86,12 @@ Valid placeholders for the linux example may be:
 .. code-block:: bash
 
     [BUILD]$ colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Debug
-        
+
 3. In order to run the tests use the following command:
 
 .. code-block:: bash
 
-    [BUILD]$ colcon test --base-paths [SOURCES] --packages-select discovery-server    
+    [BUILD]$ colcon test --base-paths [SOURCES] --packages-select discovery-server
 
 note that only the test matching the build (step 2) configuration would run.
 
@@ -102,12 +102,12 @@ note that only the test matching the build (step 2) configuration would run.
 .. code-block:: bash
 
     [BUILD]/install/discovery-server/examples/C++/HelloWorldExampleDS/bin$ . ../../../../../local_setup.bash
-    
+
 in order to test the `example <HelloWorldExample.html#example-application>`_ open three terminals and run the above
 command. Then launch the application with different arguments:
 
 .. code-block:: bash
-        
+
     [BUILD]/install/discovery-server/examples/HelloWorldExampleDS/bin$ ./HelloWorldExampleDS publisher
     [BUILD]/install/discovery-server/examples/HelloWorldExampleDS/bin$ ./HelloWorldExampleDS subscriber
     [BUILD]/install/discovery-server/examples/HelloWorldExampleDS/bin$ ./HelloWorldExampleDS server
@@ -125,7 +125,7 @@ Valid placeholders for the windows example may be:
 |\[BUILD\]      | C:\Users\username\Documents\colcon_build   |
 +---------------+--------------------------------------------+
 
-1. Create directory **[BUILD]** where you want to keep the build, install and log compilation results. 
+1. Create directory **[BUILD]** where you want to keep the build, install and log compilation results.
 
 2. If your generator (compiler) of choice is Visual Studio, launch colcon from a visual studio console. Any console
    can be setup into a visual studio one by executing a batch file. For example in VS2017 is usually:
@@ -138,10 +138,10 @@ Valid placeholders for the windows example may be:
    build both in debug and release modes:
 
 .. code-block:: bat
-        
+
     [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Debug
     [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release
-        
+
 If you are using a single configuration tool just make above call with your configuration of choice.
 
 4. In order to run the tests in a multi-configuration generator like Visual Studio use the following command:
@@ -149,24 +149,24 @@ If you are using a single configuration tool just make above call with your conf
 .. code-block:: bat
 
     [BUILD]> colcon test --base-paths [SOURCES] --packages-select discovery-server --ctest-args -C Debug
-        
+
 here --ctest-args allows you to specify the configuration (Debug or Release) of interest (names are case sensitive).
 If you are using a single configuration tool this flag has no effect, as only the test matching the build (step 3)
 configuration would run.
 
-5. In order to run the example, navigate to directory 
+5. In order to run the example, navigate to directory
    **[BUILD]**\\install\\discovery-server\\examples\\HelloWorldExampleDS\\bin and run the executable,
    running first the configuration bat file located within install folder in order to set required environment variables:
 
 .. code-block:: bat
-    
+
     [BUILD]\install\discovery-server\examples\C++\HelloWorldExampleDS\bin>..\..\..\..\..\local_setup.bat
-    
+
 To test the helloworld example_ open three consoles, run the above bat file and launch the application with different
 arguments:
 
 .. code-block:: bat
-    
+
     [BUILD]\install\discovery-server\examples\C++\HelloWorldExampleDS\bin> HelloWorldExampleDS publisher
     [BUILD]\install\discovery-server\examples\C++\HelloWorldExampleDS\bin> HelloWorldExampleDS subscriber
     [BUILD]\install\discovery-server\examples\C++\HelloWorldExampleDS\bin> HelloWorldExampleDS server

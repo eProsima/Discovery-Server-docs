@@ -35,10 +35,10 @@ following tags:
     `BACKUP  <command_line.html#discoverysettings>`_.
  -  **creation_time** introduced for testing purposes specifies in seconds when a server must be created.
  -  **removal_time** introduced for testing purposes specifies in seconds when a server must be destroyed.
- 
+
  Each server element admits the following tags:
- 
- - **ListeningPorts** contains lists of locators where this server will listen for incoming client metatraffic. 
+
+ - **ListeningPorts** contains lists of locators where this server will listen for incoming client metatraffic.
  - **ServersList** contains at least one **RServer** tag that references the servers this one wants to link to.
    **RServer** only has a prefix attribute. Based on this prefix the discover-server parser would search for the
    corresponding server locators within the config file.
@@ -46,9 +46,9 @@ following tags:
    *creation_time* and *removal_time*.
  - **subscriber** introduced for testing purposes. Creates a dummy publisher characterized by *profile_name*, *topic*,
    *creation_time* and *removal_time*.
-  
+
 +   **clients** introduced for testing purposes. Is a list of dummy clients that the discovery-server must create and
-    setup. Must contain at least a **client** tag. 
+    setup. Must contain at least a **client** tag.
 
  Each client admits the following attributes:
 
@@ -57,7 +57,7 @@ following tags:
  -  **server** specifies the prefix of the server we want to link to. This optional attribute saves us the nuisance
     of creating a **ServerList** (only if this client references a single server). Based on this prefix the
     discover-server
-    parser would search for the corresponding server locators within the config file. 
+    parser would search for the corresponding server locators within the config file.
  -  **listening_port** specifies a physical port where to listen for incomming traffic. This attribute is mandatory in
     TCP transport (client wouldn't receive other clients traffic without it). When using the TCPv4 the format is:
     [XXX.XXX.XXX.XXX:]XXXX where the IP address is the client's WAN address that must be specified if we want the
@@ -67,8 +67,8 @@ following tags:
  -  **removal_time** introduced for testing purposes specifies in seconds when a client must be destroyed.
 
  Each client element admits the following tags:
- 
- - **ServersList** contains at least one **RServer** tag that references the servers this one wants to link to. 
+
+ - **ServersList** contains at least one **RServer** tag that references the servers this one wants to link to.
    **RServer** only has a prefix attribute. Based on this prefix the discover-server parser would search for the
    corresponding server locators within the config file.
  - **publisher** introduced for testing purposes. Creates a publisher characterized by *profile_name*, *topic*,
@@ -76,9 +76,9 @@ following tags:
  - **subscriber** introduced for testing purposes. Creates a publisher characterized by *profile_name*, *topic*,
    *creation_time* and *removal_time*.
 
-+   **types** is plainly the 
++   **types** is plainly the
     `fast RTPS types <https://eprosima-fast-rtps.readthedocs.io/en/latest/xmlprofiles.html#xml-dynamic-types>`_.
-    It's introduced here for testing purposes to check how topic and type discovery info is handled by EDP. 
+    It's introduced here for testing purposes to check how topic and type discovery info is handled by EDP.
 
 +   **snapshots** contains **snapshot** tags. Whenever a discovery-server creates a participant (client or a server) it
     becomes its *listener* in the sense that all discovery info received by the participant is relayed to him. This
@@ -91,7 +91,7 @@ following tags:
     to process the config file (creating and destroying entities or taking snapshots) then all **snapshots** taken are
     checked. If any of them shows discovery info leakages discovery server returns -1 and the unsuccessful *snapshot* is
     logged to the standard error. Note:
- 
+
  -  this validation can be avoided using the **file** atribute of the **snapshots** collection.
  -  there is a particular case that requires special treatment by using **snapshot** attribute **someone**.
     By default **someone** is true and no discovery info reported by any participant is regarded as a failure, yet in

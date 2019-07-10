@@ -10,7 +10,7 @@ Basic concepts
 **************
 
 Under the new client-server discovery paradigm, the metatraffic (message exchange among participants to identify each
-other) is centralized in one or several server participants (right figure), as opposed to simple discovery 
+other) is centralized in one or several server participants (right figure), as opposed to simple discovery
 (left figure), where metatraffic is exchanged using a message broadcast mechanism like an IP multicast protocol.
 
 .. image:: ds_uml.png
@@ -39,7 +39,7 @@ the discovery server application just profits from the capabilities provided by 
 RTPSParticipantAttributes
 -------------------------
 
-+ a `GuidPrefix_t guidPrefix` member specifies server's identity.  This member has only significance if 
++ a `GuidPrefix_t guidPrefix` member specifies server's identity.  This member has only significance if
   `discovery_config.discoveryProtocol` is **SERVER** or **BACKUP**. There is a `ReadguidPrefix` method to easily fill
   in this member from a string formatted like `"4D.49.47.55.45.4c.5f.42.41.52.52.4f"` (note that each byte must be a
   valid hexadecimal figure).
@@ -66,14 +66,14 @@ DiscoverySettings
       (static or dynamic) as ordinary participants do. Servers can link to other servers in order to share its clients
       information.
     - **BACKUP** generates a *server* participant with additional functionality over **SERVER**. Specifically, it uses
-      a database to backup its client information, so that if for whatever reason it disappears, it can be automatically 
-      restored and continue spreading metatraffic to late joiners. A **SERVER** in the same scenario ought to collect 
+      a database to backup its client information, so that if for whatever reason it disappears, it can be automatically
+      restored and continue spreading metatraffic to late joiners. A **SERVER** in the same scenario ought to collect
       client information again, introducing a recovery delay.
 
-+ a **RemoteServerList_t  m_DiscoveryServers** lists the servers linked to the participant. This member has only 
-  significance if **discoveryProtocol** is **CLIENT**, **SERVER** or **BACKUP**. This member elements are 
++ a **RemoteServerList_t  m_DiscoveryServers** lists the servers linked to the participant. This member has only
+  significance if **discoveryProtocol** is **CLIENT**, **SERVER** or **BACKUP**. This member elements are
   `RemoteServerAttributes` objects that identify each server and report where to reach it:
-  
+
     - **GuidPrefix_t guidPrefix** is the RTPS unique identifier of the server participant we want to link to.
       There is a `ReadguidPrefix` method to easily fill in this member from a string formatted like
       `"4D.49.47.55.45.4c.5f.42.41.52.52.4f"` (note that each octec must be a valid hexadecimal figure).
@@ -82,7 +82,7 @@ DiscoverySettings
     - **Duration_t discoveryServer_client_syncperiod** specifies the time span between PDP metatraffic exchange,
       and has only significance if `discoveryProtocol` is **CLIENT**, **SERVER** or **BACKUP**.
       The default value is half a second.
-    
+
 RTPS schema elements dealing with discovery services
 =====================================================
 
@@ -101,7 +101,7 @@ to accommodate the new client-server attributes:
     - a **discoveryServersList** tag, where the server or servers linked with a participant can be specified.
     - a **clientAnnouncementPeriod** tag, where the time span between PDP metatraffic exchange can be specified.
 
-Below we provide an example xml participant profile using this new *tags*:    
+Below we provide an example xml participant profile using this new *tags*:
 
 .. literalinclude:: ../tests/test_1_PDP_UDP.xml
     :language: XML
@@ -123,17 +123,17 @@ line arguments. There are two modes of execution:
   When using the discovery server with testing purposes one may:
 
  - inmediately validate when test execution is finished. This is the usual case when testing a single process scenario.
-    
+
  - not validate the test results and generate and xml file with the test results. This results file follows a
    specific `ds-snapshot.xsd <../../schemas/ds-snapshot.xsd>`_ schema. This mode is activated by passing a filename
    in the input config xml. It's the usual case when testing a multiprocess or multimachine scenario. Each process or
    machine will generate a results xml file (with each one's discovery information record) and all of them would be
    validated later by running the discovery server binary in *validation* mode.
- 
+
  ::
- 
+
    > discovery-server-X.X.X(d).exe config_file.xml
-    
+
 + *Validation* mode. Only for testing purposes. In this mode several xml results files generated on *Processing* mode
   would be compared to each other in other to assess if all discovery information was properly propagated by the server
   or servers involved in the testing.
@@ -141,7 +141,7 @@ line arguments. There are two modes of execution:
  ::
 
    > discovery-server-X.X.X(d).exe results_file_1.xml results_file_2.xml results_file_3.xml ...
-   
+
 Note that if the colcon deployment strategy described in section
 `Installation steps <installation.html#installation-steps>` was followed, before using the binary we must setup the
 appropriate enviromental variables using colcon generated scripts:
@@ -149,7 +149,7 @@ appropriate enviromental variables using colcon generated scripts:
 Linux:
 
 .. code-block:: bash
-    
+
     [BUILD]/install/discovery-server/bin$ . ../../local_setup.bash
 
 Windows:
@@ -157,7 +157,7 @@ Windows:
 .. code-block:: bat
 
     [BUILD]\install\discovery-server\bin>..\..\local_setup.bat
-    
+
 where:
 
 - the local_setup batch sets up the environment variables for the binary execution.

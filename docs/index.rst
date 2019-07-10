@@ -21,7 +21,7 @@ There are several scenarios were the simple discovery mechanism is unsuitable or
 + a network without multicasting capabilities.
 
 In order to cope with the above issues the fast-RTPS discovery mechanism was extended with a client-server
-functionality. Besides, to simplify the management and testing of this new functionality this discovery-server 
+functionality. Besides, to simplify the management and testing of this new functionality this discovery-server
 application was devised.
 
 .. _`Current DDS-RTPS standard`: https://www.omg.org/spec/DDSI-RTPS/2.2
@@ -38,35 +38,34 @@ This documentation is organized into the following sections:
 
 .. toctree::
 	:caption: Installation
-	
+
 	installation
-	
+
 .. _user:
 
 .. toctree::
 	:caption: User Manual
-	
+
 	command_line
 	xml_schemas
-	
+
 .. _examples:
 
 .. toctree::
 	:caption: Examples
-	
+
 	HelloWorldExample
-	
+
 .. _tests:
 
 .. toctree::
 	:caption: Tests explanation
-	
+
 	tests
-	
+
 .. _notes:
 
 .. toctree::
     :caption: Release Notes
 
     notes
-	
