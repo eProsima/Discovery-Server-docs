@@ -23,7 +23,7 @@ them, usually by specifying a listening IP address and transport protocol.
 
 One of the design goals of the current implementation was to keep both the discovery messages structure and standard
 RTPS writer and reader behavior unchanged. In order to do so, clients must be aware of their server's GuidPrefix.
-GuidPrefix is the RTPS standard participant unique identifier (basically 12 bytes), which allows clients to assess
+GuidPrefix is the RTPS standard participant unique identifier (basically 12 bytes) which allows clients to assess
 whether they are receiving messages from the right server, as each standard RTPS message contains this piece of
 information. Note that the server's IP address may not be a reliable server's identifier because several can be specified
 and multicast addresses are acceptable. In future implementations, any other more convenient and non-standard identifier
