@@ -81,7 +81,7 @@ Valid placeholders for the Linux example may be:
 1. Create directory **[BUILD]** where we want to keep the build, install and log compilation results.
 
 2. Compile using the colcon tool. Choose the build configuration by declaring CMAKE_BUILD_TYPE as Debug or Release.
-   In this example we've chosen Debug which would be the choice of advance users for debugging purposes:
+   In this example we have chosen Debug which would be the choice of advance users for debugging purposes:
 
 .. code-block:: bash
 
