@@ -11,7 +11,7 @@ eProsima Discovery Server Documentation
     :alt: eProsima
     :target: http://www.eprosima.com/
 
-| `Current DDS-RTPS standard`_ in its section 8.5 specifies a non-centralized, distributed simple discovery mechanism
+| The `Current DDS-RTPS standard`_ in its section 8.5 specifies a non-centralized, distributed simple discovery mechanism
 | for RTPS. This mechanism was devised to allow interoperability among independent vendor-specific implementations
 | but is not expected to be optimal in every environment.
 
@@ -33,8 +33,6 @@ This documentation is organized into the following sections:
 * :ref:`examples`
 * :ref:`tests`
 * :ref:`notes`
-
-.. _installation:
 
 .. toctree::
 	:caption: Installation

@@ -43,12 +43,12 @@ following tags:
    **RServer** only has a prefix attribute. Based on this prefix the discover-server parser would search for the
    corresponding server locators within the config file.
  - **publisher** introduced for testing purposes. Creates a dummy publisher characterized by *profile_name*,*topic*,
-   *creation_time* and *removal_time*.
+   *creation_time*, and *removal_time*.
  - **subscriber** introduced for testing purposes. Creates a dummy publisher characterized by *profile_name*, *topic*,
-   *creation_time* and *removal_time*.
+   *creation_time*, and *removal_time*.
 
 +   **clients** introduced for testing purposes. It's a list of dummy clients that the discovery-server must create and
-    setup. Must contain at least a **client** tag.
+    set up. Must contain at least a **client** tag.
 
  Each client admits the following attributes:
 

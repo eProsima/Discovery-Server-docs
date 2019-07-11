@@ -87,8 +87,8 @@ The snapshot information output would be something like:
 			 Participant client4 1.f.1.30.ac.12.0.0.5.0.0.0|0.0.1.c1
 
 We'll only get this with the debug binary. On Release mode we can resort to provide a filename to the **snapshots** tag.
-Then an xml file will be generated with the same info (note that generating an xml automatically disables validation
-thus it cannot be used in singleton tests).
+Then an XML file will be generated with the same info (note that generating an XML automatically disables validation
+thus, it cannot be used in singleton tests).
 
 .. literalinclude:: ../tests/test_1_snapshot.xml
 	:language: xml
@@ -98,7 +98,7 @@ thus it cannot be used in singleton tests).
 Here we see how all participants reported the discovery of all the others. Note that, because there is no Fast-RTPS
 discovery callback from a participant to report its own discovery, participants do not report themselves. This must
 be taken into account when a snapshot is checked. Note, however, that participants do discover themselves when they
-create a publisher or subscriber, because there are callbacks associated for those cases.
+create a publisher or subscriber, because there are callbacks associated with those cases.
 
 test_2_PDP_TCP.xml
 ******************
@@ -178,7 +178,7 @@ test_5_EDP_UDP.xml & test_5_EDP_TCP.xml
 
 These tests introduce dummy publishers and subscribers to assess proper EDP discovery operation over UDP and TCP
 transport. A server and two clients are created, and each participant (server included) creates publishers and
-subscribers with different types and topics. At the end a snapshot is taken to verify all publishers and subscribers
+subscribers with different types and topics. In the end, a snapshot is taken to verify all publishers and subscribers
 have been reported by all participants. Note that the tags *publisher* and *subscriber* have attributes to supersede
 topics specified in profiles.
 
@@ -270,7 +270,7 @@ test_6_EDP_UDP.xml
 
 Here we test how the discovery handles EDP late joiners. It's the same scenario with a server and two clients with
 different lifespans. Each participant (server included) creates publishers and subscribers with different lifespans,
-types and topics. Snapshots are taken whenever an endpoint is created or destroyed to assess every participant shares
+types, and topics. Snapshots are taken whenever an endpoint is created or destroyed to assess every participant shares
 the same discovery info.
 
 .. literalinclude:: ../tests/test_6_EDP_UDP.xml
@@ -281,7 +281,7 @@ the same discovery info.
 test_7_PDP_UDP.xml
 ******************
 
-Here we test how the discovery handles server shutdown and reboot. This is a clean shutdown made from the fast RTPS API
+Here we test how the discovery handles server shutdown and reboot. This is a clean shutdown made from the Fast RTPS API
 :code:`Domain::removeParticipant`. Each time the server dies it notifies this fact to all its clients which
 automatically begin pinging on the server again trying to reconnect when its rebooted. Snapshots check that clients
 are aware of server absence after shutdown and presence after reboot.
