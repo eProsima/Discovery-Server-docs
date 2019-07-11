@@ -86,7 +86,7 @@ The snapshot information output would be something like:
 			 Participant client3 1.f.1.30.ac.12.0.0.4.0.0.0|0.0.1.c1
 			 Participant client4 1.f.1.30.ac.12.0.0.5.0.0.0|0.0.1.c1
 
-We'll only get this with the debug binary. On Release mode we can resort to provide a filename to the **snapshots** tag.
+We'll only get this with the debug binary. On Release mode, we can resort to provide a filename to the **snapshots** tag.
 Then an XML file will be generated with the same info (note that generating an XML automatically disables validation
 thus, it cannot be used in singleton tests).
 
@@ -98,7 +98,7 @@ thus, it cannot be used in singleton tests).
 Here we see how all participants reported the discovery of all the others. Note that, because there is no Fast-RTPS
 discovery callback from a participant to report its own discovery, participants do not report themselves. This must
 be taken into account when a snapshot is checked. Note, however, that participants do discover themselves when they
-create a publisher or subscriber, because there are callbacks associated with those cases.
+create a publisher or subscriber because there are callbacks associated with those cases.
 
 test_2_PDP_TCP.xml
 ******************
@@ -159,10 +159,10 @@ test_4_PDP_UDP.xml
 
 Here we test the capability of one server to exchange information with another one. Two servers are created and each
 one has different associated clients. We take a snapshot to assess all clients are aware of the other server's clients
-existence. Note that we don't need to modify the previous tests profiles, as we can rely on *server* and *client* tag
+existence. Note that we don't need to modify the previous tests profiles, as we can rely on the *server* and *client* tag
 attributes to avoid create redundant boilerplate profiles:
 
-    - *server* **prefix** attribute is used to supersede the profile specified one, and uniquely identifies each server.
+    - *server* **prefix** attribute is used to supersede the profile specified one and uniquely identifies each server.
     - *server* **ListeningPorts** and **ServerList** tags allow us to link servers between them without creating
       specific server profiles.
     - *client* **server** attribute is used to link a client with its server without using a new profile or a

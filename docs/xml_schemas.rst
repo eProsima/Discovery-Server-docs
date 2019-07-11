@@ -72,9 +72,9 @@ following tags:
    **RServer** only has a prefix attribute. Based on this prefix the discover-server parser would search for the
    corresponding server locators within the config file.
  - **publisher** introduced for testing purposes. Creates a publisher characterized by *profile_name*, *topic*,
-   *creation_time* and *removal_time*.
+   *creation_time*, and *removal_time*.
  - **subscriber** introduced for testing purposes. Creates a publisher characterized by *profile_name*, *topic*,
-   *creation_time* and *removal_time*.
+   *creation_time*, and *removal_time*.
 
 +   **types** is plainly the
     `Fast-RTPS types <https://eprosima-Fast-RTPS.readthedocs.io/en/latest/xmlprofiles.html#xml-dynamic-types>`_.

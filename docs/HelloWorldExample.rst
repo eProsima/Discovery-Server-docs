@@ -19,7 +19,7 @@ and hard code the server's reference.
 UDP transport attribute settings
 --------------------------------
 
-In order to use UDP we can rely on the default transport where the locators are actual ports and IP addresses.
+In order to use UDP, we can rely on the default transport where the locators are actual ports and IP addresses.
 
 UDP transport code setup for a client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ UDP transport code setup for a client
 
     mp_participant = Domain::createParticipant(PParam);
 
-Note that according with `former attributes explanation <command_line#rtps-attributes-dealing-with-discovery-services>`_
+Note that according to `former attributes explanation <command_line#rtps-attributes-dealing-with-discovery-services>`_
 we must populate the **DiscoverySettings discovery_config** specifying we want to create a
 **DiscoveryProtocol_t::CLIENT** and adding a new *RemoteServerAttributes* object to the *m_DiscoveryServers* list.
 In this case the UDP port 65215 is hardcoded as is the server prefix.
@@ -121,11 +121,11 @@ The **DiscoverySettings discovery_config** is almost the same as in
 specifies 65215 as a logical port and 9843 as a physical one. The reason behind this is that TCP transport was
 devised in order to allow a single TCP connection tunnel several participants traffic through it.
 In order to differentiate each participant sharing the connection, a *logical port concept* was introduced.
-The transport will understand that must connect to the physical port (using TCP protocol) and rely meta traffic
+The transport will understand that must connect to the physical port (using TCP protocol) and relay meta traffic
 to the logical port 65215 which is the meta traffic mailbox of the server we are interested in.
 
-A new TCPv4TransportDescriptor must be created and a physical listening port selected. In this case each
-HelloWorldExample instance creates a single participant thus the linked proccess ID is a suitable seed to make up
+A new TCPv4TransportDescriptor must be created and a physical listening port selected. In this case, each
+HelloWorldExample instance creates a single participant thus the linked process ID is a suitable seed to make up
 a listening port number (this way each time a new client is created a different port is selected).
 
 TCP transport code setup for a server
@@ -160,7 +160,7 @@ The **DiscoverySettings discovery_config** is almost the same as in
 `UDP server case <#udp-transport-code-setup-of-a-server>`_. Note that here the *server_address* locator specifies
 65215 as a logical port instead of a physical one.
 
-A new TCPv4TransportDescriptor must be created and a physical listening port selected. Unlike the client code this
+A new TCPv4TransportDescriptor must be created and a physical listening port selected. Unlike the client code, this
 listening port (9843 in the example) must be known beforehand for all clients in order to successfully deliver
 meta traffic to the server.
 
@@ -179,11 +179,11 @@ Windows::
 
 	>..\..\..\..\..\local_setup.bat
 
-otherwise modify the console PATH or terminal LIB_PATH_DIR environmental variables to allow the example binary to locate
+otherwise, modify the console PATH or terminal LIB_PATH_DIR environmental variables to allow the example binary to locate
 fast shared libraries.
 
-The command-line syntax is the usual for the HelloWorldExample although a new flag **-t** or **--tcp** is introduced to
-enforce the use of tcp transport:
+The command-line syntax is the usual one for the HelloWorldExample although a new flag **-t** or **--tcp** is introduced to
+enforce the use of TCP transport:
 
 Linux:
 
@@ -202,7 +202,7 @@ Windows:
 +==========+==================+=========================================================+
 | -h       | --help           | Produce help message                                    |
 +----------+------------------+---------------------------------------------------------+
-| -t       | --tcp            | Use tcp transport instead of the default UDP one        |
+| -t       | --tcp            | Use TCP transport instead of the default UDP one        |
 +----------+------------------+---------------------------------------------------------+
 | -c <num> | --count=<num>    | Number of datagrams to send (0=infinite) defaults to 10 |
 +----------+------------------+---------------------------------------------------------+
@@ -242,7 +242,7 @@ Windows:
 		> HelloWorldExampleDS server
 
 The HelloWorldExampleDS server instance can be replaced by a discovery-server instance that creates a suitable server.
-Thus instead of calling :code:`HelloWorldExample --server` we can call:
+Thus instead of calling :code:`HelloWorldExample --server`, we can call:
 
 Windows:
 
@@ -289,7 +289,7 @@ HelloWorld_TCP_config.xml
 
 The XML basically mimics the `TCP attribute source code <#tcp-transport-code-setup-for-a-server>`_ showed above:
 
- + a tcp transport descriptor is created specifying the physical listening port as 9843.
+ + a TCP transport descriptor is created specifying the physical listening port as 9843.
  + the above transport descriptor is added to the participant user transports.
  + builtin transport is disabled to avoid UDP operation. This wouldn't disturb TCP communication in any way and is
    specified merely to prove that the actual discovery traffic is not going through UDP.
@@ -313,7 +313,7 @@ HelloWorld_UDP_TCP_config.xml
 The above XML config generates a server able to listen simultaneously on TCP or UDP ports. It mixes concepts from
 previous UDP and TCP config files:
 
- + a tcp transport descriptor is created specifying the physical listening port as 9843.
+ + a TCP transport descriptor is created specifying the physical listening port as 9843.
  + the above transport descriptor is added to the participant user transports.
  + builtin transport is not disabled in order to allow UDP traffic.
  + server prefix is specified
