@@ -25,13 +25,9 @@ A discovery-server.repos_ file is available in order to profit from vcstool capa
 repositories. Once vcstool python package is installed download the sources is as easy as download the
 discovery-server.repos_ and call:
 
-Linux::
+.. code-block:: bash
 
-[SOURCES]$ vcs import --input discovery-server.repos
-
-Windows::
-
-[SOURCES]> vcs import --input discovery-server.repos
+    [SOURCES]$ vcs import --input discovery-server.repos
 
 on the **[SOURCES]** directory where the user wants to keep the repositories.
 
@@ -150,7 +146,7 @@ If using a single configuration tool just make the above call with your configur
 
     [BUILD]> colcon test --base-paths [SOURCES] --packages-select discovery-server --ctest-args -C Debug
 
-here --ctest-args allows to specify the configuration (Debug or Release) of interest (names are case sensitive).
+Here, --ctest-args allows specifying the configuration (Debug or Release) of interest (names are case sensitive).
 If using a single configuration tool this flag has no effect, as only the test matching the build (step 3)
 configuration would run.
 
