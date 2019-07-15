@@ -81,7 +81,7 @@ Valid placeholders for the Linux example may be:
 
 .. code-block:: bash
 
-    [BUILD]$ colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Debug
+    [BUILD]$ colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DTHIRDPARTY=ON -DLOG_LEVEL_INFO=ON -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Debug
 
 3. In order to run the tests use the following command:
 
@@ -135,8 +135,8 @@ Valid placeholders for the windows example may be:
 
 .. code-block:: bat
 
-    [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Debug
-    [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release
+    [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DTHIRDPARTY=ON -DLOG_LEVEL_INFO=ON -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Debug
+    [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DTHIRDPARTY=ON -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release
 
 If using a single configuration tool just make the above call with your configuration of choice.
 
