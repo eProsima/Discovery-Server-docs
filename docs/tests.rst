@@ -32,7 +32,7 @@ Windows:
 	[BUILD]\install\discovery-server\bin>discovery-server-X.Y.Z(d) [SOURCES]\discovery-server\resources\xml\test_XXX.xml
 
 To view the full discovery information messages and snapshots in debug configuration, run colcon with the additional
-flag `-DLOG_LEVEL_INFO=1`.
+flag `-DLOG_LEVEL_INFO=ON`.
 
 A brief description of each test is given below. Note that a detailed explanation of the XML syntax is given in section
 `configuration files <xml_schemas.html>`_.
