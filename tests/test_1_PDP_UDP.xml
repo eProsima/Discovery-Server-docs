@@ -30,7 +30,7 @@
                   <metatrafficUnicastLocatorList>
                     <locator>
                       <udpv4>
-                        <address>127.0.0.1</address>
+                      <!-- placeholder server UDP address -->
                         <port>64863</port>
                       </udpv4>
                     </locator>
@@ -54,7 +54,8 @@
             <metatrafficUnicastLocatorList>
                 <locator>
                     <udpv4>
-                        <address>127.0.0.1</address>
+                    <!-- placeholder server UDP address -->
+                        <address>192.168.1.113</address>
                         <port>64863</port>
                     </udpv4>
                 </locator>
