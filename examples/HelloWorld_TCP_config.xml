@@ -11,7 +11,7 @@
               <transport_id>TCPv4_SERVER</transport_id>
               <type>TCPv4</type>
               <listening_ports>
-                  <port>9843</port>
+                  <port>64863</port>
               </listening_ports>
           </transport_descriptor>
       </transport_descriptors>
@@ -35,6 +35,8 @@
             <metatrafficUnicastLocatorList>
             <locator>
                 <tcpv4>
+                    <!-- if no address is provided the server would export all its public interfaces as address -->
+                    <!-- this is a logical port, the physical one is specify as listening port above -->
                     <port>65215</port>
                 </tcpv4>
             </locator>
