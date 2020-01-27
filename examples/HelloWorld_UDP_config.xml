@@ -22,8 +22,9 @@
             <metatrafficUnicastLocatorList>
             <locator>
                 <udpv4>
-                <address>127.0.0.1</address>
-                <port>65215</port>
+                <!-- UDP address placeholder -->
+                <address>192.168.1.113</address>
+                <port>64863</port>
                 </udpv4>
             </locator>
             </metatrafficUnicastLocatorList>

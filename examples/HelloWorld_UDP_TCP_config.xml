@@ -11,7 +11,7 @@
                 <transport_id>TCPv4_SERVER</transport_id>
                 <type>TCPv4</type>
                 <listening_ports>
-                    <port>9843</port>
+                    <port>64863</port>
                 </listening_ports>
             </transport_descriptor>
         </transport_descriptors>
@@ -35,14 +35,17 @@
                 <metatrafficUnicastLocatorList>
                     <locator>
                         <tcpv4>
-                            <address>127.0.0.1</address>
+                            <!-- Placeholder for server address -->
+                            <address>192.168.1.113</address>
+                            <!-- This is a logical port, the physical one was specified as listening port -->
                             <port>65215</port>
                         </tcpv4>
                     </locator>
                     <locator>
                         <udpv4>
-                            <address>127.0.0.1</address>
-                            <port>65215</port>
+                            <!-- Placeholder for server address -->
+                            <address>192.168.1.113</address>
+                            <port>64863</port>
                         </udpv4>
                     </locator>
                 </metatrafficUnicastLocatorList>
