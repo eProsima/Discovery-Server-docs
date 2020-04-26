@@ -14,7 +14,7 @@ participants are now *clients* and can only discover each other when a *server* 
 As usual, we launch publishers and subscribers by running HelloWorldExampleDS.exe with the corresponding **publisher**
 or **subscriber** argument. Each publisher and subscriber is launched within its own participant, but now the
 :code:`HelloWorldPublisher::init()` and :code:`HelloWorldSubscriber::init()` methods are modified to create clients
-and add the server address specified by command line (`see examples <helloworldexample#helloworldexample_command_line_syntax>`_). 
+and add the server address specified by command line (`see examples <helloworldexample#helloworldexample_command_line_syntax>`_).
 
 UDP transport attribute settings
 --------------------------------
