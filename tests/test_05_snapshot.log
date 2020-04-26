@@ -1,0 +1,78 @@
+2020-04-24 17:20:46.820 [DISCOVERY_SERVER Info] Snapshot taken at 2020-04-24 17:20:46.816 or 3014 ms since process startup. Description: Check all publishers and subscribers are properly discovered by everybody
+Snapshot process startup at 2020-04-24 17:20:43.801 
+Last PDP callback at 2020-04-24 17:20:44.548 or 746 ms since process startup.
+Last EDP callback at 2020-04-24 17:20:45.030 or 1229 ms since process startup.
+3 participants report the following discovery info:
+Participant 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.1.c1 discovered 3 participants, 5 publishers and 5 subscribers:
+	 Participant 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.1.c1 has:
+		1 publishers:
+			Publisher 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.1.3 TypeName: sample_type_2 TopicName: topic_2
+		3 subscribers:
+			Subscriber 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.2.4 TypeName: HelloWorld TopicName: HelloWorldTopicliveliness, alive_count: 0 not_alive_count: 0
+			Subscriber 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.3.4 TypeName: sample_type_2 TopicName: topic_2liveliness, alive_count: 0 not_alive_count: 0
+			Subscriber 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.4.4 TypeName: sample_type_1 TopicName: topic_1liveliness, alive_count: 0 not_alive_count: 0
+
+	 Participant client2 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.1.c1 has:
+		3 publishers:
+			Publisher 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.1.3 TypeName: HelloWorld TopicName: HelloWorldTopic
+			Publisher 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.2.3 TypeName: sample_type_1 TopicName: topic_1
+			Publisher 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.3.3 TypeName: sample_type_1 TopicName: topic_1
+		1 subscribers:
+			Subscriber 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.4.4 TypeName: sample_type_2 TopicName: topic_2liveliness, alive_count: 0 not_alive_count: 0
+
+	 Participant server 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.c1 has:
+		1 publishers:
+			Publisher 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.3 TypeName: sample_type_2 TopicName: topic_2
+		1 subscribers:
+			Subscriber 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.2.4 TypeName: sample_type_1 TopicName: topic_1liveliness, alive_count: 0 not_alive_count: 0
+
+
+Participant 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.1.c1 discovered 3 participants, 5 publishers and 5 subscribers:
+	 Participant client1 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.1.c1 has:
+		1 publishers:
+			Publisher 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.1.3 TypeName: sample_type_2 TopicName: topic_2
+		3 subscribers:
+			Subscriber 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.2.4 TypeName: HelloWorld TopicName: HelloWorldTopicliveliness, alive_count: 0 not_alive_count: 0
+			Subscriber 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.3.4 TypeName: sample_type_2 TopicName: topic_2liveliness, alive_count: 0 not_alive_count: 0
+			Subscriber 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.4.4 TypeName: sample_type_1 TopicName: topic_1liveliness, alive_count: 0 not_alive_count: 0
+
+	 Participant 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.1.c1 has:
+		3 publishers:
+			Publisher 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.1.3 TypeName: HelloWorld TopicName: HelloWorldTopic
+			Publisher 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.2.3 TypeName: sample_type_1 TopicName: topic_1
+			Publisher 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.3.3 TypeName: sample_type_1 TopicName: topic_1
+		1 subscribers:
+			Subscriber 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.4.4 TypeName: sample_type_2 TopicName: topic_2liveliness, alive_count: 0 not_alive_count: 0
+
+	 Participant server 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.c1 has:
+		1 publishers:
+			Publisher 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.3 TypeName: sample_type_2 TopicName: topic_2
+		1 subscribers:
+			Subscriber 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.2.4 TypeName: sample_type_1 TopicName: topic_1liveliness, alive_count: 0 not_alive_count: 0
+
+
+Participant 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.c1 discovered 3 participants, 5 publishers and 5 subscribers:
+	 Participant client1 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.1.c1 has:
+		1 publishers:
+			Publisher 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.1.3 TypeName: sample_type_2 TopicName: topic_2
+		3 subscribers:
+			Subscriber 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.2.4 TypeName: HelloWorld TopicName: HelloWorldTopicliveliness, alive_count: 0 not_alive_count: 0
+			Subscriber 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.3.4 TypeName: sample_type_2 TopicName: topic_2liveliness, alive_count: 0 not_alive_count: 0
+			Subscriber 1.f.26.69.58.1f.0.0.2.0.0.0|0.0.4.4 TypeName: sample_type_1 TopicName: topic_1liveliness, alive_count: 0 not_alive_count: 0
+
+	 Participant client2 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.1.c1 has:
+		3 publishers:
+			Publisher 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.1.3 TypeName: HelloWorld TopicName: HelloWorldTopic
+			Publisher 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.2.3 TypeName: sample_type_1 TopicName: topic_1
+			Publisher 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.3.3 TypeName: sample_type_1 TopicName: topic_1
+		1 subscribers:
+			Subscriber 1.f.26.69.58.1f.0.0.3.0.0.0|0.0.4.4 TypeName: sample_type_2 TopicName: topic_2liveliness, alive_count: 0 not_alive_count: 0
+
+	 Participant 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.c1 has:
+		1 publishers:
+			Publisher 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.3 TypeName: sample_type_2 TopicName: topic_2
+		1 subscribers:
+			Subscriber 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.2.4 TypeName: sample_type_1 TopicName: topic_1liveliness, alive_count: 0 not_alive_count: 0
+
+
+ -> Function eprosima::discovery_server::DSManager::validateAllSnapshots

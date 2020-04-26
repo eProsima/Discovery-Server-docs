@@ -25,7 +25,7 @@
           <locator>
             <udpv4>
               <address>127.0.0.1</address>
-              <port>31569</port>
+              <port>44949</port>
             </udpv4>
           </locator>
         </metatrafficUnicastLocatorList>
@@ -60,7 +60,7 @@
                             <locator>
                                 <udpv4>
                                     <address>127.0.0.1</address>
-                                    <port>31568</port>
+                                    <port>44948</port>
                                 </udpv4>
                             </locator>
                         </metatrafficUnicastLocatorList>
@@ -84,7 +84,7 @@
                 <locator>
                     <udpv4>
                         <address>127.0.0.1</address>
-                        <port>31568</port>
+                        <port>44948</port>
                     </udpv4>
                 </locator>
             </metatrafficUnicastLocatorList>

@@ -53,7 +53,7 @@ following tags:
  Each client admits the following attributes:
 
  -  **name** non-mandatory but advisable for debugging purposes.
- -  **profile_name** identifies the profile associated with this server is a mandatory one.
+ -  **profile_name** identifies the profile associated with this client is a mandatory one.
  -  **server** specifies the prefix of the server we want to link to. This optional attribute saves us the nuisance
     of creating a **ServerList** (only if this client references a single server). Based on this prefix the
     discover-server
@@ -71,6 +71,23 @@ following tags:
  - **ServersList** contains at least one **RServer** tag that references the servers this one wants to link to.
    **RServer** only has a prefix attribute. Based on this prefix the discover-server parser would search for the
    corresponding server locators within the config file.
+ - **publisher** introduced for testing purposes. Creates a publisher characterized by *profile_name*, *topic*,
+   *creation_time*, and *removal_time*.
+ - **subscriber** introduced for testing purposes. Creates a publisher characterized by *profile_name*, *topic*,
+   *creation_time*, and *removal_time*.
+
++   **simples** introduced for testing purposes. It's a list of dummy participants using simple discovery that the
+    discovery-server must create set up. Must contain at least a **simple** tag.
+
+ Each simple admits the following attributes:
+
+ -  **name** non-mandatory but advisable for debugging purposes.
+ -  **profile_name** identifies the profile associated with this participant is a mandatory one.
+ -  **creation_time** introduced for testing purposes specifies in seconds when a client must be created.
+ -  **removal_time** introduced for testing purposes specifies in seconds when a client must be destroyed.
+
+ Each simple element admits the following tags:
+
  - **publisher** introduced for testing purposes. Creates a publisher characterized by *profile_name*, *topic*,
    *creation_time*, and *removal_time*.
  - **subscriber** introduced for testing purposes. Creates a publisher characterized by *profile_name*, *topic*,

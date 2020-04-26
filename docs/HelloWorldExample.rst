@@ -14,7 +14,7 @@ participants are now *clients* and can only discover each other when a *server* 
 As usual, we launch publishers and subscribers by running HelloWorldExampleDS.exe with the corresponding **publisher**
 or **subscriber** argument. Each publisher and subscriber is launched within its own participant, but now the
 :code:`HelloWorldPublisher::init()` and :code:`HelloWorldSubscriber::init()` methods are modified to create clients
-and add the server address specified by command line (`see examples <helloworldexample#helloworldexample_command_line_syntax>`_).
+and add the server address specified by command line (`see examples <#helloworldexample-command-line-syntax>`_).
 
 UDP transport attribute settings
 --------------------------------
@@ -31,7 +31,6 @@ UDP transport code setup for a client
 
     ParticipantAttributes PParam;
     PParam.rtps.builtin.discovery_config.discoveryProtocol = DiscoveryProtocol_t::CLIENT;
-    PParam.rtps.builtin.domainId = 0;
     PParam.rtps.builtin.discovery_config.leaseDuration = c_TimeInfinite;
     PParam.rtps.setName("Participant_pub");
 
@@ -57,7 +56,6 @@ UDP transport code setup for a server
     ParticipantAttributes PParam;
     PParam.rtps.builtin.discovery_config.discoveryProtocol = DiscoveryProtocol_t::SERVER;
     PParam.rtps.ReadguidPrefix("4D.49.47.55.45.4c.5f.42.41.52.52.4f");
-    PParam.rtps.builtin.domainId = 0;
     PParam.rtps.builtin.discovery_config.leaseDuration = c_TimeInfinite;
     PParam.rtps.setName("Participant_server");
 
@@ -72,7 +70,7 @@ UDP transport code setup for a server
 Note that according to `former attributes explanation <command_line#rtps-attributes-dealing-with-discovery-services>`_
 we must populate the **DiscoverySettings discovery_config** specifying we want to create a
 **DiscoveryProtocol_t::SERVER** and adding a new listening locator to any **BuiltinAttributes** metatraffic lists
-(this locator or locators must be known by the clients). In this case, the UDP port 64863 is hardcoded as is the
+(this locator or locators must be known by the clients). In this case, the UDP port 64863 is hard-coded as is the
 server prefix.
 
 TCP transport attribute settings
@@ -92,7 +90,6 @@ TCP transport code setup for a client
 
     ParticipantAttributes PParam;
     PParam.rtps.builtin.discovery_config.discoveryProtocol = DiscoveryProtocol_t::CLIENT;
-    PParam.rtps.builtin.domainId = 0;
     PParam.rtps.builtin.discovery_config.leaseDuration = c_TimeInfinite;
     PParam.rtps.setName("Participant_pub");
 
@@ -139,7 +136,6 @@ TCP transport code setup for a server
     ParticipantAttributes PParam;
     PParam.rtps.builtin.discovery_config.discoveryProtocol = DiscoveryProtocol_t::SERVER;
     PParam.rtps.ReadguidPrefix("4D.49.47.55.45.4c.5f.42.41.52.52.4f");
-    PParam.rtps.builtin.domainId = 0;
     PParam.rtps.builtin.discovery_config.leaseDuration = c_TimeInfinite;
     PParam.rtps.setName("Participant_server");
 
@@ -212,7 +208,7 @@ Windows:
 +----------------+------------------+---------------------------------------------------------+
 | -i <num>       | --Interval=<num> | Time between samples in milliseconds defaults to 100    |
 +----------------+------------------+---------------------------------------------------------+
-| -l <ip[:port]> | --ip=<ip[:port]> | Server address and physical port                        |  
+| -l <ip[:port]> | --ip=<ip[:port]> | Server address and physical port                        |
 +----------------+------------------+---------------------------------------------------------+
 
 The main difference with the plain HelloWorldExample is that additionally to the Publisher and Subscriber instance we
@@ -280,7 +276,7 @@ The XML basically mimics the `UDP attribute source code <#upd-transport-code-set
  + discovery kind set to SERVER.
  + metatrafic locators set to the UDP listening port.
 
-Note that leaseDuration was set to INFINITY in order to mimic the HelloWorldExample usual participants but can be
+Note that leaseDuration was set to INFINITY in order to mimic the HelloWorldExample usual participants but it can be
 whatever value without affecting the discovery operation.
 
 HelloWorld_TCP_config.xml
@@ -304,7 +300,7 @@ The XML basically mimics the `TCP attribute source code <#tcp-transport-code-set
    is merely a port number that is linked with this particular server.
 
  Again, note that leaseDuration was set to INFINITY in order to mimic the HelloWorldExample usual participants but
- can be whatever value without affecting the discovery operation.
+ it can be whatever value without affecting the discovery operation.
 
 HelloWorld_UDP_TCP_config.xml
 -----------------------------
@@ -323,7 +319,7 @@ previous UDP and TCP config files:
  + builtin transport is not disabled in order to allow UDP traffic.
  + server prefix is specified
  + discovery kind set to SERVER.
- + metatrafic locators set to the logical TCP listening port and UDP actual IP address and listening port. 
+ + metatrafic locators set to the logical TCP listening port and UDP actual IP address and listening port.
 
 Using this last config XML file to generate a server allows, not only that participants with the same transport
 (either UDP or TCP) discover each other, but that all participants (disregarding selected transport) discover
@@ -334,7 +330,7 @@ Testing over a network using HelloWorldExampleDS
 ------------------------------------------------
 
 We need to now the server address and physical port. In our example it would be `192.168.1.113:64863`. Defaults to UDP,
-if we want to use TCP add the `--tcp` flag to the following commands:
+if we want to use TCP add the `--tcp` (or the abbreviated `-t`) flag to the following commands:
 
 Windows:
 
@@ -368,7 +364,6 @@ faster among the server interfaces. Of course we can force the use of a single i
 would be able to reach the server (we strongly discourage this).
 
 Note also that if no port number is provided a default one is used.
-
 
 Linux:
 

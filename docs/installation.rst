@@ -11,7 +11,11 @@ Installation
 Dependencies
 ************
 
-In order to use discovery server, its necessary have a compatible version of `Fast RTPS`_ installed (over release 1.9.0).
+In order to use discovery server, its necessary to have a compatible version of `Fast RTPS`_ installed (over release 1.9.0).
+
+Fast-RTPS v1.10 adoption of DDS API introduces xml and ABI incompatibilities with discovery server tests and examples
+with version number below v1.2.
+
 Fast RTPS dependencies as tinyxml_ must be accessible, either because Fast RTPS was build-installed defining
 THIRDPARTY=ON or because those libraries have been specifically installed.
 
@@ -35,16 +39,17 @@ on the **[SOURCES]** directory where the user wants to keep the repositories.
 
 In order to avoid using vcstool the following repositories should be downloaded from github into **SOURCES**:
 
-+----------------------------+--------------------------------------------------+
-| eProsima/Fast-CDR:         | https://github.com/eProsima/Fast-CDR.git         |
-+----------------------------+--------------------------------------------------+
-| eProsima/Fast-RTPS:        | https://github.com/eProsima/Fast-RTPS.git        |
-+----------------------------+--------------------------------------------------+
-| eProsima/Discovery-Server: | https://github.com/eProsima/Discovery-Server.git |
-+----------------------------+--------------------------------------------------+
-| leethomason/tinyxml2:      | https://github.com/leethomason/tinyxml2.git      |
-+----------------------------+--------------------------------------------------+
-
++-----------------------------------+---------------------------------------------------------+
+| eProsima/Fast-CDR:                | https://github.com/eProsima/Fast-CDR.git                |
++-----------------------------------+---------------------------------------------------------+
+| eProsima/Fast-RTPS:               | https://github.com/eProsima/Fast-RTPS.git               |
++-----------------------------------+---------------------------------------------------------+
+| eProsima/Discovery-Server:        | https://github.com/eProsima/Discovery-Server.git        |
++-----------------------------------+---------------------------------------------------------+
+| eProsima/foonathan_memory_vendor: | https://github.com/eProsima/foonathan_memory_vendor.git |
++-----------------------------------+---------------------------------------------------------+
+| leethomason/tinyxml2:             | https://github.com/leethomason/tinyxml2.git             |
++-----------------------------------+---------------------------------------------------------+
 
 We also assume that the user wants to keep the build, log and installation files in a separate directory called
 **[BUILD]**. If this is not the case, flag **--base-paths [SOURCES]** can be ignored in what follows.
@@ -81,7 +86,7 @@ Valid placeholders for the Linux example may be:
 
 .. code-block:: bash
 
-    [BUILD]$ colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DTHIRDPARTY=ON -DLOG_LEVEL_INFO=ON -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Debug
+    [BUILD]$ colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DTHIRDPARTY=ON -DLOG_LEVEL_INFO=ON -DCOMPILE_EXAMPLES=ON -DINTERNALDEBUG=ON -DCMAKE_BUILD_TYPE=Debug
 
 3. In order to run the tests use the following command:
 
@@ -135,7 +140,7 @@ Valid placeholders for the windows example may be:
 
 .. code-block:: bat
 
-    [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DTHIRDPARTY=ON -DLOG_LEVEL_INFO=ON -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Debug
+    [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DTHIRDPARTY=ON -DLOG_LEVEL_INFO=ON -DCOMPILE_EXAMPLES=ON -DINTERNALDEBUG=ON -DCMAKE_BUILD_TYPE=Debug
     [BUILD]> colcon build --base-paths [SOURCES] --packages-up-to discovery-server --cmake-args -DTHIRDPARTY=ON -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release
 
 If using a single configuration tool just make the above call with your configuration of choice.

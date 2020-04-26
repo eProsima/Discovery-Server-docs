@@ -1,0 +1,36 @@
+2020-04-24 15:52:58.162 [DISCOVERY_SERVER Info] Snapshot taken at 2020-04-24 15:52:58.157 or 3003 ms since process startup. Description: Check all clients met the server and know each other
+Snapshot process startup at 2020-04-24 15:52:55.153 
+Last PDP callback at 2020-04-24 15:52:55.834 or 680 ms since process startup.
+Last EDP callback at 2020-04-24 15:52:55.153 or 0 ms since process startup.
+5 participants report the following discovery info:
+Participant 1.f.26.69.a0.4e.0.0.2.0.0.0|0.0.1.c1 discovered 4 participants, 0 publishers and 0 subscribers:
+	 Participant client2 1.f.26.69.a0.4e.0.0.3.0.0.0|0.0.1.c1
+	 Participant client3 1.f.26.69.a0.4e.0.0.4.0.0.0|0.0.1.c1
+	 Participant client4 1.f.26.69.a0.4e.0.0.5.0.0.0|0.0.1.c1
+	 Participant server 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.c1
+
+Participant 1.f.26.69.a0.4e.0.0.3.0.0.0|0.0.1.c1 discovered 4 participants, 0 publishers and 0 subscribers:
+	 Participant client1 1.f.26.69.a0.4e.0.0.2.0.0.0|0.0.1.c1
+	 Participant client3 1.f.26.69.a0.4e.0.0.4.0.0.0|0.0.1.c1
+	 Participant client4 1.f.26.69.a0.4e.0.0.5.0.0.0|0.0.1.c1
+	 Participant server 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.c1
+
+Participant 1.f.26.69.a0.4e.0.0.4.0.0.0|0.0.1.c1 discovered 4 participants, 0 publishers and 0 subscribers:
+	 Participant client1 1.f.26.69.a0.4e.0.0.2.0.0.0|0.0.1.c1
+	 Participant client2 1.f.26.69.a0.4e.0.0.3.0.0.0|0.0.1.c1
+	 Participant client4 1.f.26.69.a0.4e.0.0.5.0.0.0|0.0.1.c1
+	 Participant server 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.c1
+
+Participant 1.f.26.69.a0.4e.0.0.5.0.0.0|0.0.1.c1 discovered 4 participants, 0 publishers and 0 subscribers:
+	 Participant client1 1.f.26.69.a0.4e.0.0.2.0.0.0|0.0.1.c1
+	 Participant client2 1.f.26.69.a0.4e.0.0.3.0.0.0|0.0.1.c1
+	 Participant client3 1.f.26.69.a0.4e.0.0.4.0.0.0|0.0.1.c1
+	 Participant server 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.c1
+
+Participant 4d.49.47.55.45.4c.5f.42.41.52.52.4f|0.0.1.c1 discovered 4 participants, 0 publishers and 0 subscribers:
+	 Participant client1 1.f.26.69.a0.4e.0.0.2.0.0.0|0.0.1.c1
+	 Participant client2 1.f.26.69.a0.4e.0.0.3.0.0.0|0.0.1.c1
+	 Participant client3 1.f.26.69.a0.4e.0.0.4.0.0.0|0.0.1.c1
+	 Participant client4 1.f.26.69.a0.4e.0.0.5.0.0.0|0.0.1.c1
+
+ -> Function eprosima::discovery_server::DSManager::validateAllSnapshots
