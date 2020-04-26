@@ -9,20 +9,20 @@
     -->
   
   <servers>
-    <server name="server" profile_name="UDP server">
+    <server name="server" profile_name="TCP server">
         <subscriber topic="topic 1" />
       <publisher topic="topic 2" />
     </server>
   </servers>
 
   <clients>
-    <client name="client1" profile_name="UDP client">
+    <client name="client1" profile_name="TCP client" listening_port="12323">
         <subscriber /> <!-- defaults to helloworld type -->
         <subscriber topic="topic 2" />
         <subscriber profile_name="Sub 1" />
         <publisher profile_name="Pub 2" />    
     </client>
-    <client name="client2" profile_name="UDP client">
+    <client name="client2" profile_name="TCP client" listening_port="12324">
         <publisher />  <!-- defaults to helloworld type -->
       <publisher topic="topic 1" />
       <publisher profile_name="Pub 1" />
@@ -35,31 +35,28 @@
   </snapshots>
   
   <profiles>
+  
+    <transport_descriptors>
+      
+      <transport_descriptor>
+        <transport_id>TCPv4_SERVER</transport_id>
+        <type>TCPv4</type>
+        <listening_ports>
+          <port>12322</port>
+        </listening_ports>
+        <calculate_crc>false</calculate_crc>
+        <check_crc>false</check_crc>
+      </transport_descriptor>
+      
+    </transport_descriptors>
     
-    <participant profile_name="UDP client" >
+    <participant profile_name="TCP server">
       <rtps>
-        <builtin>
-            <discovery_config>
-                <discoveryProtocol>CLIENT</discoveryProtocol>
-                <discoveryServersList>
-                    <RemoteServer prefix="4D.49.47.55.45.4c.5f.42.41.52.52.4f">
-                        <metatrafficUnicastLocatorList>
-                            <locator>
-                                <udpv4>
-                                    <address>127.0.0.1</address>
-                                    <port>56857</port>
-                                </udpv4>
-                            </locator>
-                        </metatrafficUnicastLocatorList>
-                    </RemoteServer>
-                </discoveryServersList>
-            </discovery_config>
-        </builtin>
-      </rtps>
-    </participant>
-    
-    <participant profile_name="UDP server">
-      <rtps>
+        <userTransports>
+          <transport_id>TCPv4_SERVER</transport_id>
+        </userTransports>
+        <useBuiltinTransports>false</useBuiltinTransports>
+      
         <prefix>
           4D.49.47.55.45.4c.5f.42.41.52.52.4f
         </prefix>
@@ -69,15 +66,40 @@
             </discovery_config>
           <metatrafficUnicastLocatorList>
             <locator>
-              <udpv4>
+              <tcpv4>
                 <address>127.0.0.1</address>
-                <port>56857</port>
-              </udpv4>
+                <port>6339</port>
+              </tcpv4>
             </locator>
           </metatrafficUnicastLocatorList>
         </builtin>        
       </rtps>
     </participant>
+
+      <participant profile_name="TCP client" >
+          <rtps>
+              <useBuiltinTransports>false</useBuiltinTransports>
+
+              <builtin>
+                  <discovery_config>
+                      <discoveryProtocol>CLIENT</discoveryProtocol>
+                      <discoveryServersList>
+                          <RemoteServer prefix="4D.49.47.55.45.4c.5f.42.41.52.52.4f">
+                              <metatrafficUnicastLocatorList>
+                                  <locator>
+                                      <tcpv4>
+                                          <address>127.0.0.1</address>
+                                          <physical_port>12322</physical_port>
+                                          <port>6339</port>
+                                      </tcpv4>
+                                  </locator>
+                              </metatrafficUnicastLocatorList>
+                          </RemoteServer>
+                      </discoveryServersList>
+                  </discovery_config>
+              </builtin>
+          </rtps>
+      </participant>
     
     <publisher profile_name="Pub 1">
       <topic>

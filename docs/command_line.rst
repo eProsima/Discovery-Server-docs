@@ -10,7 +10,7 @@ Basic concepts
 **************
 
 Under the new client-server discovery paradigm, the metatraffic (message exchange among participants to identify each
-other) is centralized in one or several server participants (right figure), as opposed to simple discovery
+other) is centralized in one or several *server* participants (right figure), as opposed to simple discovery
 (left figure), where metatraffic is exchanged using a message broadcast mechanism like an IP multicast protocol.
 
 .. image:: ds_uml.png
@@ -22,12 +22,12 @@ or TCP. Servers don't need any beforehand knowledge of their clients but, we mus
 them, usually by specifying a listening IP address and transport protocol.
 
 One of the design goals of the current implementation was to keep both the discovery messages structure and standard
-RTPS writer and reader behavior unchanged. In order to do so, clients must be aware of their server's GuidPrefix.
-GuidPrefix is the RTPS standard participant unique identifier (basically 12 bytes) which allows clients to assess
+RTPS writer and reader behavior unchanged. In order to do so, clients must be aware of their server's `GuidPrefix`.
+`GuidPrefix` is the RTPS standard participant unique identifier (basically 12 bytes) which allows clients to assess
 whether they are receiving messages from the right server, as each standard RTPS message contains this piece of
 information. Note that the server's IP address may not be a reliable server's identifier because several can be specified
 and multicast addresses are acceptable. In future implementations, any other more convenient and non-standard identifier
-may substitute the GuidPrefix at the expense of adding non-standard members to the RTPS discovery messages structure.
+may substitute the `GuidPrefix` at the expense of adding non-standard members to the RTPS discovery messages structure.
 
 RTPS Attributes dealing with discovery services
 ===============================================
@@ -104,7 +104,7 @@ updated to accommodate the new client-server attributes:
 
 Below we provide an example XML participant profile using this new *tags*:
 
-.. literalinclude:: ../tests/test_1_PDP_UDP.xml
+.. literalinclude:: ../tests/test_01_PDP_UDP.xml
     :language: XML
     :start-after: <profiles>
     :end-before: </profiles>
@@ -116,10 +116,9 @@ The discovery server binary (named after the pattern :code:`discovery-server-X.X
 number and the optional *d* denotes a debug builds) is set up from one or several XML config files passed as command-line
 arguments. There are two modes of execution:
 
-+ *Processing* mode. In this mode a single config file answering to the
-  `discovery-server.xsd <../../schemas/discovery-server.xsd>` _schema. This schema is basically an extension of the
-  fast RTPS one that simplifies the creation of custom servers and provides tools for easily testing specific
-  discovery scenarios.
++ *Processing* mode. In this mode a single config file answering to the `discovery-server.xsd
+  <../../schemas/discovery-server.xsd>`_ schema. This schema is basically an extension of the Fast-RTPS one that
+  simplifies the creation of custom servers and provides tools for easily testing specific discovery scenarios.
 
   When using the discovery server with testing purposes one may:
 
@@ -128,20 +127,32 @@ arguments. There are two modes of execution:
  - not validate the test results and generate an XML file with the test results. This results file follows a
    specific `ds-snapshot.xsd <../../schemas/ds-snapshot.xsd>`_ schema. This mode is activated by passing a filename
    in the input config XML. It's the usual case when testing a multiprocess or multimachine scenario. Each process or
-   machine will generate a results XML file (with each one's discovery information record) and all of them would be
+   machine will generate a snapshot XML file (with each one's discovery information record) and all of them would be
    validated later by running the discovery server binary in *validation* mode.
 
  ::
 
    > discovery-server-X.X.X(d).exe config_file.xml
 
-+ *Validation* mode. Only for testing purposes. In this mode several XML results files generated on *Processing* mode
-  would be compared to each other in other to assess if all discovery information was properly propagated by the server
-  or servers involved in the testing.
++ *Validation* mode. Only for testing purposes. In this mode one or more XML snapshot files generated on *Processing* mode
+  must be passed as arguments.
+
+  Those files would be compared to each other in other to assess if all discovery information was properly
+  propagated by the server or servers involved in the testing.
 
  ::
 
    > discovery-server-X.X.X(d).exe results_file_1.xml results_file_2.xml results_file_3.xml ...
+
++ *Merging* mode. Only for testing purposes. In this mode one or more XML snapshot files generated on *Processing* mode,
+  together, with an output file, sign out using an *-out* flag, must be passed as arguments.
+
+  Those files would be merged in a single snapshot file. This single snapshot file it's easier to review that several
+  ones and can be validated using the *validation mode* above described.
+
+ ::
+
+   > discovery-server-X.X.X(d).exe -out aggregate_file.xml results_file_1.xml results_file_2.xml results_file_3.xml ...
 
 Note that if the colcon deployment strategy described in section
 `Installation steps <installation.html#installation-steps>` was followed, before using the binary we must setup the

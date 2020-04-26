@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<DS xmlns="http://www.eprosima.com/XMLSchemas/discovery-server" user_shutdown="false" >
+<DS xmlns="http://www.eprosima.com/XMLSchemas/discovery-server" user_shutdown="false" prefix_validation="false" >
   
-  <!-- 
-  Basically we'll launch two discovery-servers instances:
-    
-        1 - A server with several clients. This instances will take an snapshot at the beginning and another at the end.
-        
-        2 - A client which references the server on the first instance. This process would be killed from python between the snapshots.
-        
-    The first snapshot must show how all clients (remote one included) known each other. 
-  After killing process 2 (and its client) the server must kill its proxy by lease duration time out and report it to all other clients.
-  The second snapshot must show how all participants have removed the remote client from its discovery database.
-  -->
+  <!-- This test assess client's capability to detect server's demise and restart announcement in order to
+  properly reconnect with the server when it's restored-->
+  
   <servers>
-    <server name="server" profile_name="UDP server" />
+    <server name="server" profile_name="UDP server" removal_time="2" />
+    <server name="server" profile_name="UDP server" creation_time="4" removal_time="6" />
+    <server name="server" profile_name="UDP server" creation_time="8" removal_time="10" />
   </servers>
 
   <clients>
     <client name="client1" profile_name="UDP client" />
     <client name="client2" profile_name="UDP client" />
+    <client name="client3" profile_name="UDP client" />
+    <client name="client4" profile_name="UDP client" />
   </clients>
 
   <snapshots>
-    <snapshot time="1">Check the server has discovered the three clients</snapshot>
-    <snapshot time="10">Check server has kill the unresponsive client due lease duration and notify the remainder clients</snapshot>
+    <snapshot time="1">Check server-clients awareness</snapshot>
+    <snapshot time="3">Check server demise has been reported to all clients</snapshot>
+    <snapshot time="5">Check server-clients awareness has been recovered</snapshot>
+    <snapshot time="7">Check server demise has been reported to all clients</snapshot>
+    <snapshot time="9">Check server-clients awareness has been recovered</snapshot>
+    <snapshot time="11">Check server demise has been reported to all clients</snapshot>
   </snapshots>
   
   <profiles>
@@ -39,18 +39,12 @@
                             <locator>
                                 <udpv4>
                                     <address>127.0.0.1</address>
-                                    <port>45235</port>
+                                    <port>56404</port>
                                 </udpv4>
                             </locator>
                         </metatrafficUnicastLocatorList>
                     </RemoteServer>
                 </discoveryServersList>
-                <leaseDuration>
-                    <sec>5</sec>
-                </leaseDuration>
-                <leaseAnnouncement>
-                    <sec>2</sec>
-                </leaseAnnouncement>
             </discovery_config>
         </builtin>
       </rtps>
@@ -64,18 +58,12 @@
         <builtin>
             <discovery_config>
                 <discoveryProtocol>SERVER</discoveryProtocol>
-                <leaseDuration>
-                    <sec>5</sec>
-                </leaseDuration>
-                <leaseAnnouncement>
-                    <sec>2</sec>
-                </leaseAnnouncement>
             </discovery_config>
           <metatrafficUnicastLocatorList>
             <locator>
               <udpv4>
                 <address>127.0.0.1</address>
-                <port>45235</port>
+                <port>56404</port>
               </udpv4>
             </locator>
           </metatrafficUnicastLocatorList>

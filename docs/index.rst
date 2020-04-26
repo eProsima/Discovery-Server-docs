@@ -24,7 +24,7 @@ In order to cope with the above issues, the Fast-RTPS discovery mechanism was ex
 functionality. Besides, to simplify the management and testing of this new functionality this discovery-server
 application was devised.
 
-.. _`Current DDS-RTPS standard`: https://www.omg.org/spec/DDSI-RTPS/2.2
+.. _`Current DDS-RTPS standard`: https://www.omg.org/spec/DDSI-RTPS/2.3
 
 This documentation is organized into the following sections:
 

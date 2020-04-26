@@ -8,9 +8,9 @@
   </servers>
 
   <clients>
-    <client name="client1" profile_name="TCP client" listening_port="2050" />
-    <client name="client2" profile_name="TCP client" listening_port="2051" />
-    <client name="client3" profile_name="TCP client" listening_port="2052" />
+    <client name="client1" profile_name="TCP client" listening_port="48662" />
+    <client name="client2" profile_name="TCP client" listening_port="48663" />
+    <client name="client3" profile_name="TCP client" listening_port="48664" />
   </clients>
 
   <snapshots>
@@ -25,7 +25,7 @@
         <transport_id>TCPv4_SERVER</transport_id>
         <type>TCPv4</type>
         <listening_ports>
-          <port>02049</port>
+          <port>48661</port>
         </listening_ports>
         <calculate_crc>false</calculate_crc>
         <check_crc>false</check_crc>
@@ -83,7 +83,7 @@
                             <locator>
                                 <tcpv4>
                                     <address>127.0.0.1</address>
-                                    <physical_port>02049</physical_port>
+                                    <physical_port>48661</physical_port>
                                     <port>6339</port>
                                 </tcpv4>
                             </locator>
