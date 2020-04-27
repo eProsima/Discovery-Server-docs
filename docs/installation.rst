@@ -35,7 +35,7 @@ discovery-server.repos_ and call:
 
 on the **[SOURCES]** directory where the user wants to keep the repositories.
 
-.. _discovery-server.repos: https://raw.githubusercontent.com/eProsima/Discovery-Server/v1.1.0/discovery-server.repos
+.. _discovery-server.repos: https://raw.githubusercontent.com/eProsima/Discovery-Server/master/discovery-server.repos
 
 In order to avoid using vcstool the following repositories should be downloaded from github into **SOURCES**:
 

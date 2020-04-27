@@ -2,6 +2,7 @@
 <DS xmlns="http://www.eprosima.com/XMLSchemas/discovery-server" user_shutdown="false">
   
   <!--
+
   This test verifies that the discovery info is properly serialized and deserialized by a backup server.
   This server is created twice by running twice the test_11_BACKUP_server.xml file:
     - The first time the discovery data is serialized to a backup file.

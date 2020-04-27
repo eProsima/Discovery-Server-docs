@@ -1,3 +1,8 @@
+Version 1.2.0
+*************
+
+* xml schema and sources has been updated to DDS API (1.10)
+
 Version 1.1.0
 #############
 
