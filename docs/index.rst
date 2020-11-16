@@ -1,30 +1,32 @@
 .. eProsima Discovery Server documentation master file
 
-***************************************
+**********************************************
 eProsima Discovery Server Documentation
-***************************************
+**********************************************
 
-.. image:: logo.png
-    :height: 80px
-    :width: 80px
+.. image:: /01-figures/logo.png
+    :height: 100px
+    :width: 100px
     :align: left
     :alt: eProsima
     :target: http://www.eprosima.com/
 
-| The `Current DDS-RTPS standard`_ in its section 8.5 specifies a non-centralized, distributed simple discovery mechanism
-| for RTPS. This mechanism was devised to allow interoperability among independent vendor-specific implementations
-| but is not expected to be optimal in every environment.
+The `RTPS standard <http://www.omg.org/spec/DDSI-RTPS/2.2>`__ specifies in section 8.5 a non-centralized, distributed
+simple discovery mechanism. This mechanism was devised to allow interoperability among independent
+vendor-specific implementations but is not expected to be optimal in every environment.
+There are several scenarios were the simple discovery mechanism is unsuitable or plainly cannot be
+applied: a) a high number of endpoint entities are continuously entering and leaving the communication, b) wide
+communication systems deployment, and c) networks without multicasting capabilities.
 
-There are several scenarios were the simple discovery mechanism is unsuitable or plainly cannot be applied:
-
-+ a high number of endpoint entities are continuously entering and exiting a large network.
-+ a network without multicasting capabilities.
-
-In order to cope with the above issues, the Fast-RTPS discovery mechanism was extended with a client-server
-functionality. Besides, to simplify the management and testing of this new functionality this discovery-server
-application was devised.
-
-.. _`Current DDS-RTPS standard`: https://www.omg.org/spec/DDSI-RTPS/2.2
+In order to cope with the above issues, the *eProsima Fast DDS* discovery mechanism was extended with a new
+Discovery Server discovery mechanism.
+This mechanism is based on a client-server discovery paradigm, i.e. the metatraffic (message exchange among
+DDS DomainParticipants to identify each other) is managed by one or several server DomainParticipants (left figure), as
+opposed to simple discovery (right figure), where metatraffic is exchanged using a message broadcast mechanism like an
+IP multicast protocol.
+Please, refer to
+`Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/discovery/server_client.html>`__ for
+further information about the Discovery Server discovery mechanism.
 
 This documentation is organized into the following sections:
 
@@ -33,6 +35,8 @@ This documentation is organized into the following sections:
 * :ref:`examples`
 * :ref:`tests`
 * :ref:`notes`
+
+.. _installation:
 
 .. toctree::
 	:caption: Installation
@@ -57,7 +61,7 @@ This documentation is organized into the following sections:
 .. _tests:
 
 .. toctree::
-	:caption: Tests explanation
+	:caption: Tests
 
 	tests
 
