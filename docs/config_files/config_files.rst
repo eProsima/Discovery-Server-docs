@@ -27,7 +27,7 @@ is fulfilled. The ``DS`` tag can contain the following tags:
 
 +   ``profiles``: is plainly the *Fast DDS* profiles.
     It can be used to fine-tune the server operation.
-    Please refeare to the
+    Please refer to the
     `Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/xml_configuration/making_xml_profiles.html>`__
     for further information on the ``profiles`` element.
 

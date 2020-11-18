@@ -14,7 +14,7 @@ The XML basically mimics the `UDP attribute C++ source code <cpp_udp_settings>`_
 
 +   Server prefix is specified.
 +   Discovery kind set to SERVER.
-+   Metatrafic locators set to the UDP listening port.
++   Metatraffic locators set to the UDP listening port.
 
 .. note::
 
@@ -36,7 +36,7 @@ The XML basically mimics the `TCP attribute C++ source code <cpp_tcp_settings>`_
     specified merely to prove that the actual discovery traffic is not going through UDP.
 +   Server prefix is specified
 +   Discovery kind set to SERVER.
-+   Metatrafic locators set to the logical listening port. The real TCP locator is provided in the transport this one
++   Metatraffic locators set to the logical listening port. The real TCP locator is provided in the transport this one
     is merely a port number that is linked with this particular server.
 
 .. note::
@@ -59,7 +59,7 @@ It mixes concepts from previous UDP and TCP config files:
 +   Builtin transport is not disabled in order to allow UDP traffic.
 +   Server prefix is specified
 +   Discovery kind set to SERVER.
-+   Metatrafic locators set to the logical TCP listening port and UDP actual IP address and listening port.
++   Metatraffic locators set to the logical TCP listening port and UDP actual IP address and listening port.
 
 Using this last config XML file to generate a server allows, not only that participants with the same transport
 (either UDP or TCP) discover each other, but that all participants (disregarding selected transport) discover

@@ -70,17 +70,18 @@ DiscoverySettings
 
     -   **SIMPLE** generates a standard participant with complete backward compatibility with any other RTPS
         implementation.
-    -   **CLIENT** generates a *client* participant, which relies on a server to be notified of other *clients* presence.
+    -   **CLIENT** generates a *client* participant, which relies on a server to be notified of other *clients*
+        presence.
         This participant can create publishers and subscribers of any topic (static or dynamic) as ordinary participants
         do.
-    -   **SERVER** generates a *server* participant, which receives, manages and spreads its linked *clients* metatraffic
-        assuring any single one is aware of the others. This participant can create publishers and subscribers of any
-        topic (static or dynamic) as ordinary participants do. Servers can link to other servers in order to share its
-        clients information.
+    -   **SERVER** generates a *server* participant, which receives, manages and spreads its linked *clients*
+        metatraffic assuring any single one is aware of the others. This participant can create publishers and
+        subscribers of any topic (static or dynamic) as ordinary participants do. Servers can link to other servers
+        in order to share its clients information.
     -   **BACKUP** generates a *server* participant with additional functionality over **SERVER**. Specifically, it uses
-        a database to backup its client information, so that if for whatever reason it disappears, it can be automatically
-        restored and continue spreading metatraffic to late joiners. A **SERVER** in the same scenario ought to collect
-        client information again, introducing a recovery delay.
+        a database to backup its client information, so that if for whatever reason it disappears, it can be
+        automatically restored and continue spreading metatraffic to late joiners. A **SERVER** in the same scenario
+        ought to collect client information again, introducing a recovery delay.
 
 +   ``RemoteServerList_t m_DiscoveryServers`` lists the servers linked to the participant. This member has only
     significance if ``discoveryProtocol`` is **CLIENT**, **SERVER** or **BACKUP**. These member elements are
@@ -88,7 +89,7 @@ DiscoverySettings
 
     -   ``GuidPrefix_t guidPrefix`` is the RTPS unique identifier of the server participant we want to link to.
         There is a `ReadguidPrefix` method to easily fill in this member from a string formatted like
-        `"4D.49.47.55.45.4c.5f.42.41.52.52.4f"` (note that each octec must be a valid hexadecimal figure).
+        `"4D.49.47.55.45.4c.5f.42.41.52.52.4f"` (note that each octet must be a valid hexadecimal figure).
     -   ``metatrafficUnicastLocatorList`` and `metatrafficMulticastLocatorList` are ordinary `LocatorList_t`
         (see *Fast DDS* documentation) where the server's locators must be specified. At least one of them should be
         populated.

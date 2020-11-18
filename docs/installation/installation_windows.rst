@@ -192,7 +192,7 @@ This section explains how to use it to compile the Discovery Server tool and its
 
 #.  Finally, use colcon to compile all software.
     Choose the build configuration by declaring ``CMAKE_BUILD_TYPE`` as Debug or Release.
-    For this example, the Debug option has been choosen, which would be the choice of advanced users for debugging
+    For this example, the Debug option has been chosen, which would be the choice of advanced users for debugging
     purposes.
     If using a multi-configuration generator like Visual Studio we recommend to build both in debug and release modes
 

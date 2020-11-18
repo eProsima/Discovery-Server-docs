@@ -44,7 +44,7 @@ According to the `former RTPS attributes explanation <rtps_attr>`_,
 the ``DiscoverySettings discovery_config`` specifying we want to create a
 ``DiscoveryProtocol_t::SERVER`` and adding a new listening locator to any ``BuiltinAttributes`` metatraffic lists
 (this locator or locators must be known by the Clients).
-In this case, the UDP port 64863 is hardcoded as is the Server prefix.
+In this case, the UDP port 64863 is set as is the Server prefix.
 
 .. code-block:: c++
 

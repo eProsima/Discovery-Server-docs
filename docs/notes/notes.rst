@@ -14,4 +14,4 @@ mechanism released in
 Previous versions
 *****************
 
-.. include:: previous_versions/v2.0.1.rst
+.. include:: previous_versions/v1.0.0.rst

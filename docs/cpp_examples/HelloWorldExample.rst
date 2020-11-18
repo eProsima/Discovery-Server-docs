@@ -29,7 +29,7 @@ For colcon builds the relative path to the script from the example directory wou
 
     .. code-block:: bash
 
-    	> ..\..\..\..\..\local_setup.bat
+        > ..\..\..\..\..\local_setup.bat
 
 Otherwise, modify the console ``PATH`` or the ``LIB_PATH_DIR`` environmental variables to allow the example binary to
 locate *Fast DDS* shared libraries.
@@ -49,19 +49,19 @@ introduced to enforce the use of TCP transport:
 
         > HelloWorldExampleDS publisher|subscriber|server [ -h | -t | -c [<num>] | -i [<num>] | -l ip[:port] ]
 
-+----------------+------------------+----------------------------------------------------------------------------------+
-| SHORTCUT       |       FLAG       |                         MEANING                                                  |
-+================+==================+==================================================================================+
-| -h             | --help           | Produce help message                                                             |
-+----------------+------------------+----------------------------------------------------------------------------------+
-| -t             | --tcp            | Use TCP transport instead of the default UDP one                                 |
-+----------------+------------------+----------------------------------------------------------------------------------+
-| -c <num>       | --count=<num>    | Number of datagrams to send (0=infinite) defaults to 10                          |
-+----------------+------------------+----------------------------------------------------------------------------------+
-| -i <num>       | --Interval=<num> | Time between samples in milliseconds defaults to 100                             |
-+----------------+------------------+----------------------------------------------------------------------------------+
-| -l <ip[:port]> | --ip=<ip[:port]> | Server address and physical port                                                 |
-+----------------+------------------+----------------------------------------------------------------------------------+
++--------------------+----------------------+--------------------------------------------------------------------------+
+| SHORTCUT           |       FLAG           |                         MEANING                                          |
++====================+======================+==========================================================================+
+| ``-h``             | ``--help``           | Produce help message                                                     |
++--------------------+----------------------+--------------------------------------------------------------------------+
+| ``-t``             | ``--tcp``            | Use TCP transport instead of the default UDP one                         |
++--------------------+----------------------+--------------------------------------------------------------------------+
+| ``-c <num>``       | ``--count=<num>``    | Number of datagrams to send (0=infinite) defaults to 10                  |
++--------------------+----------------------+--------------------------------------------------------------------------+
+| ``-i <num>``       | ``--Interval=<num>`` | Time between samples in milliseconds defaults to 100                     |
++--------------------+----------------------+--------------------------------------------------------------------------+
+| ``-l <ip[:port]>`` | ``--ip=<ip[:port]>`` | Server address and physical port                                         |
++--------------------+----------------------+--------------------------------------------------------------------------+
 
 Additionally to the Publisher and Subscriber instances, a Server participant must be launched in order to allow
 publishers and subscribers to discover each other.

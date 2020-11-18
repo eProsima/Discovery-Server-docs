@@ -90,4 +90,4 @@ This documentation is organized into the following sections:
     :maxdepth: 2
     :hidden:
 
-    notes
+    notes/notes
