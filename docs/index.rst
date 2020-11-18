@@ -30,44 +30,64 @@ further information about the Discovery Server discovery mechanism.
 
 This documentation is organized into the following sections:
 
-* :ref:`installation`
+* :ref:`installation_manual`
 * :ref:`user`
-* :ref:`examples`
-* :ref:`tests`
+* :ref:`xml_examples`
+* :ref:`cpp_examples`
 * :ref:`notes`
 
-.. _installation:
+.. _installation_manual:
 
 .. toctree::
-	:caption: Installation
+    :caption: Installation Manual
+    :maxdepth: 2
+    :numbered: 5
+    :hidden:
 
-	installation
+    installation/installation_linux
+    installation/installation_windows
 
 .. _user:
 
 .. toctree::
-	:caption: User Manual
+    :caption: User Manual
+    :maxdepth: 2
+    :numbered: 5
+    :hidden:
 
-	command_line
-	xml_schemas
+    user_manual/getting_started/getting_started
+    user_manual/usage/command_line
+    config_files/config_files
 
-.. _examples:
-
-.. toctree::
-	:caption: Examples
-
-	HelloWorldExample
-
-.. _tests:
+.. _xml_examples:
 
 .. toctree::
-	:caption: Tests
+    :caption: XML examples
+    :maxdepth: 2
+    :numbered: 5
+    :hidden:
 
-	tests
+    xml_profiles/basic_config
+    xml_profiles/advanced_config
+    xml_profiles/transports
+
+.. _cpp_examples:
+
+.. toctree::
+    :caption: C++ Examples
+    :maxdepth: 2
+    :numbered: 5
+    :hidden:
+
+    cpp_examples/HelloWorldExample
+    cpp_examples/udp_settings
+    cpp_examples/tcp_settings
 
 .. _notes:
 
 .. toctree::
     :caption: Release Notes
+    :maxdepth: 2
+    :hidden:
 
     notes
