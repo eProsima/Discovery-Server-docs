@@ -47,7 +47,7 @@ The online documentation generated with this project can be found in
 The project is structured as follows:
 
 1. The root directory contains global scope files, such as this one.
-1. The [docs directory](#docs-directory) contains all documentation source code.
+1. The [docs directory](docs) contains all documentation source code.
 
 ## Installation Guide
 

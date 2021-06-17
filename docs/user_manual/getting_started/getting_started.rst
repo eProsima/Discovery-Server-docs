@@ -5,7 +5,7 @@ Getting started
 
 This section explains the basic concepts of the Discovery Server discovery mechanism.
 For more information on the Discovery Server mechanism, please refer to the
-`Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/discovery/server_client.html>`__.
+`Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/v2.3.3/fastdds/discovery/discovery_server.html>`_.
 
 Basic concepts
 **************

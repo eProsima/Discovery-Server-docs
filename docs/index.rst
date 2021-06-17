@@ -25,7 +25,7 @@ DDS DomainParticipants to identify each other) is managed by one or several serv
 opposed to simple discovery (right figure), where metatraffic is exchanged using a message broadcast mechanism like an
 IP multicast protocol.
 Please, refer to
-`Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/discovery/server_client.html>`__ for
+`Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/v2.3.3/fastdds/discovery/discovery_server.html>`_ for
 further information about the Discovery Server discovery mechanism.
 
 This documentation is organized into the following sections:

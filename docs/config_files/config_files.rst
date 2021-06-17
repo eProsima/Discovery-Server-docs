@@ -4,7 +4,7 @@ Configuration files
 ####################
 
 Discovery-server operation is managed from an XML configuration file that follows the
-`Discovery Server XSD schema <https://github.com/eProsima/Discovery-Server/blob/master/resources/xsd/discovery-server.xsd>`__,
+`Discovery Server XSD schema <https://github.com/eProsima/Discovery-Server/blob/master/resources/xsd/discovery-server.xsd>`_,
 which is an extension of the *Fast DDS* XML schema.
 The discovery-server main goals are:
 
@@ -28,7 +28,7 @@ is fulfilled. The ``DS`` tag can contain the following tags:
 +   ``profiles``: is plainly the *Fast DDS* profiles.
     It can be used to fine-tune the server operation.
     Please refer to the
-    `Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/xml_configuration/making_xml_profiles.html>`__
+    `Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/xml_configuration/making_xml_profiles.html>`_
     for further information on the ``profiles`` element.
 
 +   ``servers``: is a list of servers that the discovery-server must create and setup.
@@ -40,8 +40,8 @@ is fulfilled. The ``DS`` tag can contain the following tags:
         It is optional because it may be specified in the profile. By using this
         attribute the generation of server profiles that only differ in prefix can be avoided.
     -   ``profile_name``: identifies the profile associated with this server. It is a mandatory.
-    -   ``persist``: specifies if the participant is a `SERVER <getting_started_discovery_settings>`_) or a
-        `BACKUP  <getting_started_discovery_settings>`_.
+    -   ``persist``: specifies if the participant is a :ref:`SERVER <getting_started_discovery_settings>`) or a
+        :ref:`BACKUP  <getting_started_discovery_settings>`.
     -   ``creation_time``: specifies in seconds when a server must be created. It is introduced for testing purposes.
     -   ``removal_time``: specifies in seconds when a server must be destroyed. It is introduced for testing purposes.
 

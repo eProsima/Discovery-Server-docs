@@ -7,8 +7,7 @@ The instructions for installing the Discovery Server tool in a Windows environme
 In order to use the Discovery Server tool, its necessary to have a compatible version of
 `eProsima Fast DDS <https://eprosima-fast-rtps.readthedocs.io/en/latest/>`__ installed (over release 2.0.2).
 
-*eProsima Fast DDS* dependencies as tinyxml must be accessible, either because *Fast DDS* was build-installed defining
-THIRDPARTY=ON or because those libraries have been specifically installed.
+*eProsima Fast DDS* dependencies as tinyxml must installed and accessible in the system.
 The cross-platform tool `colcon <https://colcon.readthedocs.io/en/released/>`__ was chosen to simplify the
 installation of the several mutually dependent `CMake <https://cmake.org/cmake/help/latest/>`__ projects.
 In order to use colcon, `Python3 <https://www.python.org/>`__ and `CMake <https://cmake.org/cmake/help/latest/>`__
@@ -180,8 +179,6 @@ This section explains how to use it to compile the Discovery Server tool and its
         | eProsima/Discovery-Server          | https://github.com/eProsima/Discovery-Server.git          | master      |
         +------------------------------------+-----------------------------------------------------------+-------------+
         | eProsima/foonathan_memory_vendor   | https://github.com/eProsima/foonathan_memory_vendor.git   | master      |
-        +------------------------------------+-----------------------------------------------------------+-------------+
-        | leethomason/tinyxml2               | https://github.com/leethomason/tinyxml2.git               | master      |
         +------------------------------------+-----------------------------------------------------------+-------------+
 
 

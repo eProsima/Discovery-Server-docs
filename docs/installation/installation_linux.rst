@@ -124,8 +124,8 @@ This section explains how to use it to compile the Discovery Server tool and its
         $ vcs import src < discovery-server.repos
 
     The
-    `discovery-server.repos <https://raw.githubusercontent.com/eProsima/Discovery-Server/master/discovery-server.repos>`__
-    file is provided in order to profit from `vcstool <https://github.com/dirk-thomas/vcstool>`__ capabilities
+    `discovery-server.repos <https://raw.githubusercontent.com/eProsima/Discovery-Server/master/discovery-server.repos>`_
+    file is provided in order to profit from vcstool_ capabilities
     to download the needed repositories.
 
     .. note::
@@ -144,8 +144,6 @@ This section explains how to use it to compile the Discovery Server tool and its
         +------------------------------------+-----------------------------------------------------------+-------------+
         | eProsima/foonathan_memory_vendor   | https://github.com/eProsima/foonathan_memory_vendor.git   | master      |
         +------------------------------------+-----------------------------------------------------------+-------------+
-        | leethomason/tinyxml2               | https://github.com/leethomason/tinyxml2.git               | master      |
-        +------------------------------------+-----------------------------------------------------------+-------------+
 
 #.  Finally, use colcon to compile all software.
     Choose the build configuration by declaring ``CMAKE_BUILD_TYPE`` as Debug or Release.
@@ -156,8 +154,7 @@ This section explains how to use it to compile the Discovery Server tool and its
 
         $ colcon build --base-paths src \
                 --packages-up-to discovery-server \
-                --cmake-args -DTHIRDPARTY=ON -DLOG_LEVEL_INFO=ON \
-                        -DCOMPILE_EXAMPLES=ON -DINTERNALDEBUG=ON -DCMAKE_BUILD_TYPE=Debug
+                --cmake-args -DLOG_LEVEL_INFO=ON -DCOMPILE_EXAMPLES=ON -DINTERNALDEBUG=ON -DCMAKE_BUILD_TYPE=Debug
 
 .. note::
 

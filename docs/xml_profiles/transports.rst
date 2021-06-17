@@ -24,7 +24,7 @@ The XML basically mimics the `UDP attribute C++ source code <cpp_udp_settings>`_
 TCP settings
 ************
 
-The XML basically mimics the `TCP attribute C++ source code <cpp_tcp_settings>`_:
+The XML basically mimics the :ref:`TCP attribute C++ source code <cpp_tcp_settings>`:
 
 .. literalinclude:: ../02-resources/examples/xml/HelloWorld_TCP_config.xml
     :language: xml

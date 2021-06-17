@@ -10,7 +10,7 @@ To use UDP, the application relies on the default transport where the locators a
 UDP transport code setup for a Client
 *************************************
 
-According to the `former RTPS attributes explanation <rtps_attr>`_,
+According to the :ref:`former RTPS attributes explanation <rtps_attr>`,
 the ``DiscoverySettings discovery_config`` must be populated specifying ``DiscoveryProtocol_t::CLIENT``
 and adding a new ``RemoteServerAttributes`` object to the ``m_DiscoveryServers`` list.
 In this case the UDP port 64863 is set as is the server prefix.
@@ -40,7 +40,7 @@ In this case the UDP port 64863 is set as is the server prefix.
 UDP transport code setup for a server
 *************************************
 
-According to the `former RTPS attributes explanation <rtps_attr>`_,
+According to the :ref:`former RTPS attributes explanation <rtps_attr>`,
 the ``DiscoverySettings discovery_config`` specifying we want to create a
 ``DiscoveryProtocol_t::SERVER`` and adding a new listening locator to any ``BuiltinAttributes`` metatraffic lists
 (this locator or locators must be known by the Clients).
