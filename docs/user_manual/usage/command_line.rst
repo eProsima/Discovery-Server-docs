@@ -21,7 +21,7 @@ To have the tool accessible in the terminal session it is necessary to source th
 
 -   **Windows**
 
-    .. code-block:: bash
+    .. code-block:: batch
 
         > . <path\to\discovery-server-ws>\discovery-server-ws\install\setup.bat
         > discovery-server-X.X.X(d).exe config_file.xml

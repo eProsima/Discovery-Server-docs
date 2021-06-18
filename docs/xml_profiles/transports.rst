@@ -6,7 +6,7 @@ Transport protocol configuration
 UDP settings
 ************
 
-The XML basically mimics the `UDP attribute C++ source code <cpp_udp_settings>`_:
+The XML basically mimics the :ref:`UDP attribute C++ source code <cpp_udp_settings>`:
 
 .. literalinclude:: ../02-resources/examples/xml/HelloWorld_UDP_config.xml
     :language: xml

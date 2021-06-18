@@ -197,11 +197,11 @@ This section explains how to use it to compile the Discovery Server tool and its
 
         > colcon build --base-paths src \
                 --packages-up-to discovery-server \
-                --cmake-args -DTHIRDPARTY=ON -DLOG_LEVEL_INFO=ON \
-                        -DCOMPILE_EXAMPLES=ON -DINTERNALDEBUG=ON -DCMAKE_BUILD_TYPE=Debug
+                --cmake-args -DLOG_LEVEL_INFO=ON -DCOMPILE_EXAMPLES=ON \
+                        -DINTERNALDEBUG=ON -DCMAKE_BUILD_TYPE=Debug
         > colcon build --base-paths src \
                 --packages-up-to discovery-server \
-                --cmake-args -DTHIRDPARTY=ON -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release
+                --cmake-args -DCOMPILE_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release
 
 .. note::
 
