@@ -1,5 +1,8 @@
 .. eProsima Discovery Server documentation master file
 
+.. include:: ./03-exports/roles.include
+
+
 **********************************************
 eProsima Discovery Server Documentation
 **********************************************
@@ -28,6 +31,11 @@ Please, refer to
 `Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/v2.3.3/fastdds/discovery/discovery_server.html>`_ for
 further information about the Discovery Server discovery mechanism.
 
+.. warning::
+
+    This documentation refers to the `GitHub Discovery Server repository <https://github.com/eProsima/Discovery-Server>`__, which implements an application to test the Discovery Server discovery mechanism.
+    Therefore it should be emphasized that **Discovery Server is a discovery mechanism already available in** |fastdds|_ and this documentation refers to an application mainly used to test this functionality.
+
 This documentation is organized into the following sections:
 
 * :ref:`installation_manual`
@@ -46,6 +54,7 @@ This documentation is organized into the following sections:
 
     installation/installation_linux
     installation/installation_windows
+    installation/cmake_options
 
 .. _user:
 
