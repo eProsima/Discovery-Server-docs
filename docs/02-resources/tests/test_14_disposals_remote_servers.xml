@@ -6,7 +6,7 @@
         <server name="server2" prefix="44.49.53.43.53.45.52.56.45.52.5f.32" profile_name="UDP_server2">
             <subscriber topic="topic1" removal_time="20"/>
         </server>
-        <server name="server3" prefix="44.49.53.43.53.45.52.56.45.52.5f.33" profile_name="UDP_server3" removal_time="60"> 
+        <server name="server3" prefix="44.49.53.43.53.45.52.56.45.52.5f.33" profile_name="UDP_server3" removal_time="60">
             <subscriber topic="topic1" removal_time="10"/>
             <subscriber topic="topic2" creation_time="17"/>
         </server>
@@ -27,7 +27,7 @@
         <snapshot time="8">test_14_disposals_remote_servers_snapshot_1</snapshot>
         <!-- Remove subscriber1 from server3 -->
         <snapshot time="15">test_14_disposals_remote_servers_snapshot_2</snapshot>
-        <!-- 
+        <!--
             Remove subscriber1 from server2
             Create subscriber2 in server3
          -->
@@ -36,7 +36,7 @@
         <snapshot time="35">test_14_disposals_remote_servers_snapshot_4</snapshot>
         <!-- Remove client1_server1 -->
         <snapshot time="45">test_14_disposals_remote_servers_snapshot_5</snapshot>
-        <!-- 
+        <!--
             Create client2_server1
             Create a publisher in client2_server1
          -->
@@ -183,17 +183,8 @@
 
         <topic profile_name="topic2">
             <name>topic_2</name>
-            <dataType>sample_type_1</dataType>
+            <dataType>HelloWorld</dataType>
         </topic>
-
-        <types>
-            <type>
-              <struct name="sample_type_1">
-                <member name="index" type="uint32" />
-                <member name="message" type="string" />
-              </struct>
-            </type>
-        </types>
 
      </profiles>
 </DS>
