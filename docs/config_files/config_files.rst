@@ -87,9 +87,12 @@ is fulfilled. The ``DS`` tag can contain the following tags:
     -   ``subscriber`` introduced for testing purposes. Creates a publisher characterized by ``profile_name``,
         ``topic``, ``creation_time``, and ``removal_time``.
 
-+   ``types``: is plainly the
-    `Fast DDS types <https://fast-dds.docs.eprosima.com/en/latest/fastdds/dynamic_types/dynamic_types.html>`_.
++   ``topic``: is plainly the
+    `Fast DDS topics <https://fast-dds.docs.eprosima.com/en/latest/fastdds/dds_layer/topic/topic.html>`_.
     It is introduced here for testing purposes to check how topic and type discovery info is handled by EDP.
+    It is worth mentioning that only `HelloWorld` type is supported for now.
+
++   ``types``: configuration not supported for now. Please use ``HelloWorld`` topic type.
 
 +   ``snapshots``: contains ``snapshot`` tags.
     Whenever a Discovery Server creates a participant (client or a server) it
